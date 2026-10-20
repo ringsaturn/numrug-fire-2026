@@ -1,0 +1,102 @@
+# gibs group, Japanese.
+
+[gibs-wide]
+# line styles (the published Chinese figures style some borders differently)
+osm = { color = "yellow", lw = 1.0 }
+ne = { color = "cyan", ls = "--", lw = 0.8 }
+panel = "{sat}  ~{local}（UTC+8、{utc} UTC）"
+arxan = "アルシャン"
+border_osm = "国境（OSM）"
+border_ne = "国境（Natural Earth）"
+legend_title = "{md} トゥルーカラー\n44〜50°N、114〜124°E\nNASA GIBS 日別モザイク"
+
+[final-scar-20261012]
+panel = "{sat}\n{local}（UTC+8）· {area} km²\n国境線の外側 {outside} km²"
+title_size = 9
+top = 0.89
+hspace = 0.36
+arxan = "アルシャン"
+scar = "焼失域\n（自動抽出）"
+border_osm = "国境（OSM）"
+border_ne = "国境（Natural Earth）"
+summary = "5 シーンの範囲\n{min}〜{max} km²\n中央値 {median} km²"
+
+[final-scar-20261013]
+# line styles (the published Chinese figures style some borders differently)
+osm = { color = "yellow", lw = 1.3 }
+top = 0.915
+hspace = 0.25
+head = "{md} {sat} {local}（UTC+8）"
+head_g75 = "{md} {sat} {local}（UTC+8）（緑<75）"
+head_g110 = "{md} {sat}（感度試験：緑<110）"
+panel = "{head}\n最大連結域 {main} km²、全連結域 {all} km²、\n国境線の外側 {outside} km²"
+arxan = "アルシャン"
+main = "最大連結域"
+all = "5 km² 以上の全連結域（数字は分離した区域の面積 km²）"
+border_osm = "国境（OSM）"
+fy4c = "風雲4号C星（FY-4C）\nホットスポット①③"
+
+[gibs-daily]
+# line styles (the published Chinese figures style some borders differently)
+osm = { color = "yellow", lw = 0.9 }
+ne = { color = "cyan", ls = "--", lw = 0.8 }
+panel = "{md} {sat}\n~{local}（UTC+8）"
+arxan = "アルシャン"
+true_colour = "トゥルーカラー"
+false_colour = "フォールスカラー"
+
+[scar-delta-20261015]
+# line styles (the published Chinese figures style some borders differently)
+ref_line = { color = "white", halo = 2.0, legend_halo = 2.6 }
+osm = { color = "yellow", lw = 1.2, halo = 2.2, legend_halo = 2.6 }
+title = "焼失域の変化：{d12} → {d14} → {d15}"
+ref = "{md} {local}（UTC+8）NOAA-21\n基準焼失域 {area} km²"
+new_1014 = "{md} {local}（UTC+8）S-NPP\n未焼失域内の新規焼失 {area} km²"
+new_1015 = "{md} {local}（UTC+8）NOAA-21（南半分は雲）\n未焼失域内の新規焼失 {area} km²"
+arxan = "アルシャン"
+legend_ref = "10/12 NOAA-21 焼失域（基準）"
+legend_new = "その後の新規焼失域（穴埋めなし）"
+border_osm = "国境（OSM）"
+legend_firms = "FIRMS 当日日中の火点"
+notes = """時刻は UTC+8。データ：NASA GIBS VIIRS
+Corrected Reflectance M11-I2-I1、NASA FIRMS。
+閾値は従来と同じ：赤/緑>1.4、緑<75、
+オープニング、5 km² 以上の連結域、
+クロージング 3 回。
+
+10/14 の増加分の大半は 10/12 にすでに
+焼けていたが、煙に隠れたか閾値で
+拾えなかった部分。10/13〜10/14 に新たに
+焼けたのは約 80 km² で、モンゴル側の
+未焼失域内。"""
+
+[border-gibs-20261013]
+# line styles (the published Chinese figures style some borders differently)
+osm = { color = "yellow", lw = 1.8 }
+title = "（{letter}）{zone}：GIBS 画像上の焼失域の縁と国境"
+zone_south = "南部区間"
+zone_west-arxan = "アルシャン西方区間"
+panel = "{md} {local}（UTC+8）· {sat}\n枠内で国境線の外側の焼失域\n{area} km²、最遠 {dmax} km"
+terra_g110 = "Terra 7-2-1（緑<110）"
+scar_edge = "焼失域の縁"
+border_osm = "国境（OSM）"
+box = "注目区域"
+
+[border-east-20261012]
+title_falsecolor = "{md} 東側延焼前線の国境確認：フォールスカラーと火点"
+title_truecolor = "{md} 東側延焼前線の国境確認：トゥルーカラー"
+panel = "{local}（UTC+8）· {sat} {bands}"
+true_colour = "トゥルーカラー"
+border_osm = "国境（OSM）"
+boxes = "国境の東側の確認枠\n（S・N の 2 クラスター）"
+firms_mng = "同じ通過の FIRMS 火点\n（モンゴル側）"
+firms_east = "同じ通過の FIRMS 火点\n（OSM 線の東側）"
+where = "{md}、アルシャンの西 13〜17 km"
+
+[south-scar-20261016]
+# line styles (the published Chinese figures style some borders differently)
+osm = { color = "yellow", ls = "-", lw = 1 }
+before = "{md} {sat}：晴天、焼失域なし"
+after = "{md} {sat}：新しい焼失域"
+mongolia = "モンゴル"
+china = "中国"

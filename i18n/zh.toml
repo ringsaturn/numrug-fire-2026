@@ -1,0 +1,17 @@
+[fonts]
+# Hiragino Sans GB ships with macOS and is what the published figures used
+# (PingFang SC draws the ASCII hyphen as a dash). On Linux install Noto Sans CJK SC.
+files = ["/System/Library/Fonts/Hiragino Sans GB.ttc"]
+family = ["Hiragino Sans GB", "Noto Sans CJK SC", "DejaVu Sans"]
+
+[fmt]
+md = "{m:02d}-{d:02d}"
+hm = "{H:02d}:{M:02d}"
+mdhm = "{m:02d}-{d:02d} {H:02d}:{M:02d}"
+ymd = "{Y}-{m:02d}-{d:02d}"
+thousands = ","
+decimal = "."
+
+[common]
+utc8 = "北京时间"
+local_time_axis = "北京时间"

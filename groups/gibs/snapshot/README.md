@@ -1,0 +1,1 @@
+- `firms_box_20261014_20261015.csv` (14 KB): NASA FIRMS 24 h detections (VIIRS C2 x3, MODIS C6.1) in 46.4–47.6°N, 118.8–120.2°E, downloaded 2026-10-15 13:30 UTC; columns t (UTC), src, sat, dn, lat, lon, frp (MW), cty (side of the OSM border), dkm (km to the border). Read by `scar-delta-20261015`.

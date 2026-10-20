@@ -1,0 +1,82 @@
+# ahi group, English. Times are local (UTC+8) first; see case style rules in README.md.
+
+[map]
+arxan = "Arxan"
+mongolia = "Mongolia"
+china = "China"
+lon = "Longitude (°E)"
+lat = "Latitude (°N)"
+
+[cover]
+stamp = "Himawari-9 AHI (JMA) · {mdhm} UTC+8"
+
+[b07]
+font_size = 9
+panel_title_size = 9
+panel_title = "{time} UTC+8 · {label}"
+stats = "hotspot {n} px\nmax {bt} K"
+cbar = "B07 (3.9 µm) brightness temperature (K)"
+
+[b07.key]
+title = "Himawari-9 B07 brightness temperature: key frames"
+20261008_0440 = "first detection +30 min (day)"
+20261008_1700 = "night flare-up"
+20261009_0400 = "10-09 daytime"
+20261010_0500 = "10-10 daytime"
+20261010_1010 = "10-10 evening peak"
+20261010_1200 = "10-10 strong night burn"
+20261011_0500 = "10-11 daytime peak"
+20261012_0440 = "latest frame"
+
+[b07.evening]
+title = "Himawari-9 B07 brightness temperature: 10-12 afternoon to night"
+20261012_0440 = "end of previous update"
+20261012_0530 = "afternoon radiant peak"
+20261012_0630 = "B07 saturated"
+20261012_0710 = "late afternoon"
+20261012_0830 = "before sunset"
+20261012_0920 = "radiant peak after nightfall"
+20261012_1030 = "night"
+20261012_1140 = "latest frame"
+
+[progression]
+title = "Himawari-9 AHI fire-front progression: first detection time of each 2 km pixel (detected in ≥2 frames)\nBlack line: 12 h hotspot-weighted centroid (00:00–12:00 / 12:00–24:00 UTC+8), at window midpoint"
+track_label = "{mdhm}"
+cbar = "Local time (UTC+8)"
+footer = "Data: Himawari-9 AHI L1b B07/B14 every 10 min, 10-08 02:00–10-12 12:40 UTC+8 (10-07 18:00–10-12 04:40 UTC); no parallax correction (<1 km for surface fires); pixel ≈ 2.6×3.6 km."
+
+[latest]
+lead_r2 = "Himawari-9 AHI hotspot pixels, last 3 hours"
+lead_r3 = "Himawari-9 AHI hotspot pixels, last 3 hours"
+lead_r5 = "Himawari-9 AHI hotspot pixels in the new period of update 5"
+title = "{lead}: {start}–{end} UTC+8 ({n} frames)\nSquare size ∝ number of detections, colour = last detection time; dashed line = Border (OSM)"
+cbar = "Local time (UTC+8)"
+footer = "Data: Himawari-9 AHI L1b B07/B14 every 10 min (AWS noaa-himawari9); pixel ≈ 2.6×3.6 km, no parallax correction; squares drawn at pixel centres."
+
+[vis]
+time = "{ymd} {hm} UTC+8 ({hm_utc} UTC)"
+title_smoke = "Himawari-9 AHI visible: smoke plume   {time}"
+title_plain = "Himawari-9 AHI visible   {time}"
+b03 = "B03 red 0.64 µm (0.5 km at nadir); "
+outline = "red outline = AHI hotspots"
+no_hotspots = "no AHI hotspots at this time"
+truecolour = "True colour B03/B02 (+B04 green correction)/B01 (1 km)"
+border_ne = "Natural Earth 10m"
+border_osm = "OSM"
+footer = "Data: Himawari-9 AHI L1b (AWS noaa-himawari9). Yellow dashed line = Border ({border}); ★ = Arxan city. No Rayleigh or solar zenith correction."
+
+[timeseries]
+legend_size = 8.5
+title = "Himawari-9 AHI geostationary fire time series: fire at the eastern tip of Mongolia, west of Arxan (46.3–47.8°N, 118.4–120.4°E)"
+ahi_pixels = "Himawari-9 AHI hotspot pixels (2 km, 10 min)"
+ahi_pixels_axis = "AHI hotspot pixels"
+viirs_count = "VIIRS {sat} fire detections per overpass (375 m)"
+viirs_count_axis = "VIIRS fire detections (per overpass)"
+dt_excess = "Σ(BT7−BT14 excess over background), proxy for radiant intensity"
+dt_excess_axis = "Σ ΔT excess (K)"
+viirs_frp = "VIIRS {sat} total FRP"
+viirs_frp_axis = "VIIRS total FRP (MW)"
+bt7_max = "Max BT7 (3.9 µm) in the box"
+saturated = "B07 saturated pixels (≥399 K) present"
+bt7_max_axis = "Max BT7 (K)"
+footer = "Data: Himawari-9 AHI L1b full disk B07/B14 (JMA/NOAA, AWS noaa-himawari9), 10-08 02:00–10-13 22:00 UTC+8 (10-07 18:00–10-13 14:00 UTC); VIIRS active fire (NASA). Grey shading = night (solar zenith angle ≥ 85°).\nDetection: BT7>320 K (day)/310 K (night) or BT7−BT14 >4σ above the 21×21 background mean and >10 K; BT14 cloud screen."

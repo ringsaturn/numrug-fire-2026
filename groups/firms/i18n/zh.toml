@@ -1,0 +1,91 @@
+# The published zh FIRMS figures were drawn in PingFang SC (narrow °); the animation in Hiragino Sans GB.
+[fonts]
+files = ["/System/Library/AssetsV2/com_apple_MobileAsset_Font*/*/AssetData/PingFang.ttc"]
+family = ["PingFang SC", "Noto Sans CJK SC", "Hiragino Sans GB", "DejaVu Sans"]
+
+[places]
+arxan = "阿尔山"
+arxan_city = "阿尔山市"
+yirshi = "伊尔施"
+nomrog = "努木尔格(Nömrög)"
+crossing = "阿尔山口岸(约)"
+lon = "经度 (°E)"
+lat = "纬度 (°N)"
+day = "{pass}（白天）"
+night = "{pass}（夜间）"
+day_1km = "{pass}（白天，1 km）"
+entry = "{pass}：{n} 点，{mw} MW"
+entry_one = "{pass}：{n} 点，{mw} MW"
+
+[arxan-fire-spread]
+title = "阿尔山以西中蒙边境草原火"
+title_size = 24
+subtitle = "VIIRS 375 m 火点逐时累积，2026-10-08 至 10-16"
+subtitle_size = 14
+clock = "{t:%m月%d日 %H:%M}"
+status = "北京时间（UTC {utc}）   起火后第 {day} 天"
+status_before = "北京时间（UTC {utc}）   起火前"
+so_far = "累计火点  {n}"
+latest = "最近一次过境  {time}  {sat}{night}"
+night = "（夜）"
+last_mw = "{n} 个火点，FRP 合计 {frp} MW"
+last_mw_one = "{n} 个火点，FRP 合计 {frp} MW"
+last_gw = "{n} 个火点，FRP 合计 {frp} GW"
+mongolia = "蒙古国"
+china = "中国"
+arxan = "阿尔山"
+first = "首个火点\n{time}"
+south = "10-15 南侧新火\n（MODIS，中方一侧）"
+base = "底图：10-16 VIIRS NOAA-21 假彩色（M11-I2-I1），\n暗红为过火迹地"
+recent = "3 小时内探测"
+mid = "12 小时内"
+old = "更早（已过火）"
+none_here = "（本帧无）"
+modis = "MODIS 1 km 火点（10-15 南侧新火）"
+border = "国界（OpenStreetMap）"
+frp_axis = "每次过境 FRP 合计（GW）"
+night_note = "阴影为夜间（北京时间 18–06 时）"
+footer = """数据：NASA LANCE / LP DAAC VIIRS 375 m 主动火点（VNP14IMG、VJ114IMG、
+VJ214IMG），FIRMS MODIS C6.1；底图 Copernicus DEM GLO-90 晕渲、NASA GIBS；
+国界 OpenStreetMap。火点为像元中心，不代表火线的精确位置。"""
+footer_size = 9.5
+footer_linespacing = 1.5
+
+[firms-progression-20261013]
+title = "VIIRS 火点（NASA）按日推进（虚线：OpenStreetMap 中蒙国界）"
+legend = "{day}（北京时）VIIRS {n} 点"
+mongolia = "蒙古国 东方省"
+hinggan = "中国 内蒙古\n兴安盟"
+ujimqin = "中国 内蒙古\n锡林郭勒盟东乌珠穆沁旗"
+
+[firms-timeseries-20261013]
+title = "火区（46.3–47.9°N, 118.3–120.6°E）每次卫星过境的辐射功率、像元数与东西边缘"
+legend_title = "VIIRS/MODIS 火点（NASA），10-11 起 MODIS 为 FIRMS NRT"
+frp = "总 FRP (GW)"
+pixels = "火点像元数"
+edges = "火点经度范围 (°E)\n▲东缘 ▽西缘"
+border_east = "国界最东点约 119.93°E（阿尔山以西）"
+tick_fmt = "%m-%d %H时"
+
+[firms-east-20261012]
+title = "10-12 白天 VIIRS 火点：阿尔山以西国界段（点大小 ∝ FRP；虚线 OSM 国界）"
+title_size = 12
+before = "{day} 08 时前 VIIRS 全部火点"
+entry = "{sat} {day}（{n} 点）"
+
+[firms-20261013-1014-0911]
+title = "10-13 白天至 10-14 上午火点；灰色为 10-12 NOAA-21 迹地，虚线为 OSM 国界"
+title_size = 10
+legend_title = "VIIRS 375 m、MODIS 1 km 火点（NASA；MODIS 为 FIRMS NRT）（点大小 ∝ FRP）"
+lon = "经度 °E"
+lat = "纬度 °N"
+
+[firms-20261014-1015]
+title = "10-14 白天至 10-15 午后火点（北京时间）"
+legend_title = "VIIRS 375 m、MODIS 1 km 火点（NASA；MODIS 为 FIRMS NRT）（点大小 ∝ FRP）；\n灰色 10-14 NOAA-20 迹地，虚线 OSM 国界；\n* 时刻为卫星数据文件的开始时刻"
+file_start = "{pass}*"
+
+
+[arxan-fire-spread.fonts]
+files = ["/System/Library/Fonts/Hiragino Sans GB.ttc"]
+family = ["Hiragino Sans GB", "Noto Sans CJK SC", "DejaVu Sans"]

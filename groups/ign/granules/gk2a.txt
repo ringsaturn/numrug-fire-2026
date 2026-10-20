@@ -1,0 +1,15 @@
+# GK-2A AMI L1B full disk, NOAA open-data bucket (anonymous). 2026-10-08 03:40-04:20 UTC.
+https://noaa-gk2a-pds.s3.amazonaws.com/AMI/L1B/FD/202610/08/03/gk2a_ami_le1b_ir105_fd020ge_202610080340.nc
+https://noaa-gk2a-pds.s3.amazonaws.com/AMI/L1B/FD/202610/08/03/gk2a_ami_le1b_ir105_fd020ge_202610080350.nc
+https://noaa-gk2a-pds.s3.amazonaws.com/AMI/L1B/FD/202610/08/04/gk2a_ami_le1b_ir105_fd020ge_202610080400.nc
+https://noaa-gk2a-pds.s3.amazonaws.com/AMI/L1B/FD/202610/08/04/gk2a_ami_le1b_ir105_fd020ge_202610080410.nc
+https://noaa-gk2a-pds.s3.amazonaws.com/AMI/L1B/FD/202610/08/04/gk2a_ami_le1b_ir105_fd020ge_202610080420.nc
+https://noaa-gk2a-pds.s3.amazonaws.com/AMI/L1B/FD/202610/08/03/gk2a_ami_le1b_sw038_fd020ge_202610080340.nc
+https://noaa-gk2a-pds.s3.amazonaws.com/AMI/L1B/FD/202610/08/03/gk2a_ami_le1b_sw038_fd020ge_202610080350.nc
+https://noaa-gk2a-pds.s3.amazonaws.com/AMI/L1B/FD/202610/08/04/gk2a_ami_le1b_sw038_fd020ge_202610080400.nc
+https://noaa-gk2a-pds.s3.amazonaws.com/AMI/L1B/FD/202610/08/04/gk2a_ami_le1b_sw038_fd020ge_202610080410.nc
+https://noaa-gk2a-pds.s3.amazonaws.com/AMI/L1B/FD/202610/08/04/gk2a_ami_le1b_sw038_fd020ge_202610080420.nc
+https://noaa-gk2a-pds.s3.amazonaws.com/AMI/L1B/FD/202610/08/03/gk2a_ami_le1b_vi006_fd005ge_202610080340.nc
+https://noaa-gk2a-pds.s3.amazonaws.com/AMI/L1B/FD/202610/08/03/gk2a_ami_le1b_vi006_fd005ge_202610080350.nc
+https://noaa-gk2a-pds.s3.amazonaws.com/AMI/L1B/FD/202610/08/04/gk2a_ami_le1b_vi006_fd005ge_202610080400.nc
+https://noaa-gk2a-pds.s3.amazonaws.com/AMI/L1B/FD/202610/08/04/gk2a_ami_le1b_vi006_fd005ge_202610080410.nc

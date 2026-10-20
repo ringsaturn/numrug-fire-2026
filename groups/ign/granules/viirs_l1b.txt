@@ -1,0 +1,9 @@
+# VIIRS L1B + geolocation, NASA LAADS DAAC (Earthdata login). Pinned to the processing versions used.
+https://data.laadsdaac.earthdatacloud.nasa.gov/prod-lads/VJ102IMG/VJ102IMG.A2026281.0500.021.2026281102557.nc
+https://data.laadsdaac.earthdatacloud.nasa.gov/prod-lads/VJ103IMG/VJ103IMG.A2026281.0500.021.2026281093913.nc
+https://data.laadsdaac.earthdatacloud.nasa.gov/prod-lads/VJ202IMG/VJ202IMG.A2026281.0406.021.2026281094757.nc
+https://data.laadsdaac.earthdatacloud.nasa.gov/prod-lads/VJ202MOD/VJ202MOD.A2026281.0406.021.2026281094757.nc
+https://data.laadsdaac.earthdatacloud.nasa.gov/prod-lads/VJ203IMG/VJ203IMG.A2026281.0406.021.2026281093319.nc
+https://data.laadsdaac.earthdatacloud.nasa.gov/prod-lads/VJ203MOD/VJ203MOD.A2026281.0406.021.2026281093319.nc
+https://data.laadsdaac.earthdatacloud.nasa.gov/prod-lads/VNP02IMG/VNP02IMG.A2026281.0442.002.2026281114130.nc
+https://data.laadsdaac.earthdatacloud.nasa.gov/prod-lads/VNP03IMG/VNP03IMG.A2026281.0442.002.2026281112247.nc

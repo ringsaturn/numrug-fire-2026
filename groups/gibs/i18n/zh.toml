@@ -1,0 +1,100 @@
+# gibs group, Chinese (wording of the published Chinese figures).
+
+[gibs-wide]
+# line styles as in the published Chinese figure, which its caption describes
+osm = { color = "yellow", lw = 1.0 }
+ne = { color = "yellow", ls = "--", lw = 0.8, alpha = 0.6 }
+panel = "{sat}  北京 ~{local}（{utc} UTC）"
+arxan = "阿尔山"
+border_osm = "中蒙国界（OSM）"
+border_ne = "中蒙国界（Natural Earth）"
+legend_title = "{ymd} 真彩色\n44–50°N，114–124°E\nNASA GIBS 日拼接"
+
+[final-scar-20261012]
+panel = "{sat} 北京 {local}\n{area} km²，线外 {outside} km²"
+title_size = 10
+top = 0.92
+hspace = 0.30
+arxan = "阿尔山"
+scar = "自动提取过火区"
+border_osm = "OSM 国界"
+border_ne = "Natural Earth 国界"
+summary = "五景范围\n{min}–{max} km²\n中位 {median} km²"
+
+[final-scar-20261013]
+# line styles as in the published Chinese figure, which its caption describes
+osm = { color = "yellow", ls = "--", lw = 1.3 }
+top = 0.95
+hspace = 0.22
+head = "{md} {sat} 北京 {local}"
+head_g75 = "{md} {sat} 北京 {local}（绿<75）"
+head_g110 = "{md} {sat}（敏感性：绿<110）"
+panel = "{head}\n主 {main} km²，全部 {all} km²，线外 {outside} km²"
+arxan = "阿尔山"
+main = "主连通域"
+all = "全部 ≥5 km² 连通域（数字为脱离斑块 km²）"
+border_osm = "OSM 国界"
+fy4c = "FY-4C 热点①③"
+
+[gibs-daily]
+# line styles as in the published Chinese figure, which its caption describes
+osm = { color = "yellow", ls = "--", lw = 0.9 }
+ne = { color = "yellow", ls = "--", lw = 0.9, alpha = 0.6 }
+panel = "{md} {sat}\n北京 ~{local}"
+arxan = "阿尔山"
+true_colour = "真彩色"
+false_colour = "假彩色"
+
+[scar-delta-20261015]
+# line styles as in the published Chinese figure, which its caption describes
+ref_line = { color = "yellow", halo = 0, legend_halo = 0 }
+osm = { color = "#00e5ff", ls = "--", lw = 1.2, halo = 2.2, legend_halo = 0 }
+title = "迹地变化：{d12} → {d14} → {d15}"
+ref = "{md} {local} NOAA-21\n基准迹地 {area} km²"
+new_1014 = "{md} {local} S-NPP\n岛内新增 {area} km²"
+new_1015 = "{md} {local} NOAA-21（南半部有云）\n岛内新增 {area} km²"
+arxan = "阿尔山"
+legend_ref = "10-12 NOAA-21 迹地（基准）"
+legend_new = "之后新增迹地（未填洞）"
+border_osm = "OSM 国界"
+legend_firms = "FIRMS 当日白天火点"
+notes = """北京时间。数据 NASA GIBS VIIRS Corrected
+Reflectance M11-I2-I1、NASA FIRMS。
+阈值同前：红/绿>1.4、绿<75、开运算、
+≥5 km² 连通域、闭运算 3 次。
+
+10-14 新增大部分在 10-12 已烧，
+当时被烟遮住或阈值没取到；
+10-13 至 10-14 新烧约 80 km²，
+在蒙方未烧岛内。"""
+
+[border-gibs-20261013]
+# line styles as in the published Chinese figure, which its caption describes
+osm = { color = "yellow", ls = "--", lw = 1.8 }
+title = "({letter}) {zone}：GIBS 影像上的过火边界与国界"
+zone_south = "南段"
+zone_west-arxan = "阿尔山以西段"
+panel = "北京 {md} {local} · {sat}\n框内线外过火 {area} km²，最远 {dmax} km"
+terra_g110 = "Terra 7-2-1（绿<110）"
+scar_edge = "过火边界"
+border_osm = "OSM 国界"
+box = "关注区"
+
+[border-east-20261012]
+title_falsecolor = "{md} 东侧前锋国界核查：假彩色与火点"
+title_truecolor = "{md} 东侧前锋国界核查：真彩色"
+panel = "北京 {local} · {sat} {bands}"
+true_colour = "真彩色"
+border_osm = "OSM 国界"
+boxes = "国界以东核查框（S、N 两簇）"
+firms_mng = "FIRMS 同轨火点（蒙方）"
+firms_east = "FIRMS 同轨火点（OSM 线以东）"
+where = "{md}，阿尔山以西 13–17 km"
+
+[south-scar-20261016]
+# line styles as in the published Chinese figure, which its caption describes
+osm = { color = "yellow", ls = "--", lw = 1 }
+before = "{md} {sat}：晴空，无迹地"
+after = "{md} {sat}：新迹地"
+mongolia = "蒙古国"
+china = "中国"

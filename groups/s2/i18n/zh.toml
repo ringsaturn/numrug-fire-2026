@@ -1,0 +1,82 @@
+# s2 group, Chinese (the published wording). Placeholders as in en.toml.
+
+[s2]
+arxan = "阿尔山"
+tloc = "{ymd} {utc} UTC（北京 {lt}）"
+arrow_tail = 0.0
+true = "真彩色"
+swir = "短波红外假彩色 B12/B8A/B4"
+panel_sep = "，"
+fires_n21 = "NOAA-21 VIIRS {utc}Z 火点"
+dnbr_ticks = ["增绿", "未变", "低", "中低", "中高", "高"]
+strip = "既有带状地块"
+
+[s2-overview]
+true = "真彩色 B4/B3/B2"
+swir = "短波红外假彩色 B12/B8A/B4"
+panel = "{sat}  {time}\n{band}，40 m 重采样"
+fires_1008 = "VIIRS {a_utc}–{b_utc}Z 火点（首次探测）"
+title = "哨兵-2 L2A 火前（{d1}）、起火当日（{d2}）与火中（{d3}）对比：蒙古国东方省—阿尔山边境火场"
+footer = """黄色实线：中蒙国界（OpenStreetMap，源自 LSIB/河流中线）；青色虚线：Natural Earth 10m 国界（与 OSM 偏差约 0.5–2 km）。白框：阿尔山市区。黑色三角区（{d1}、{d3} 左上，{d2} 右下）为轨道刈幅外无数据。
+短波红外图中亮红/橙为明火锋线，黑褐/暗红褐为过火迹地，蓝紫为烟，青白为云。数据：Copernicus Sentinel-2，Element84 Earth Search COG。"""
+
+[s2-fronts-20261010]
+panel = "{label}  {sat} {time}\n{band}{sep}{res} m"
+se = "东南锋线"
+nw = "西北火头"
+title = "哨兵-2B 10 m 全分辨率：{m} 月 {d} 日 {lt}（北京）活跃火线"
+footer = """黄色实线：中蒙国界（OpenStreetMap，LSIB/河流中线）；青色虚线：Natural Earth 10m 国界。数据：Copernicus Sentinel-2 L2A（Element84 Earth Search COG）。
+亮红/橙黄为明火（B12 饱和），蓝紫为烟，黑褐为已过火迹地；圆圈为 25 分钟后 NOAA-21 VIIRS 火点。"""
+
+[border-a]
+panel = "{label}  {sat} {time}\n{band}{sep}{res} m"
+pre = "A 区（阿尔山口岸附近） 火前"
+during = "A 区（阿尔山口岸附近） 火中"
+fires = "VIIRS/MODIS {a_md} {a_utc}Z–{b_md} {b_utc}Z 火点"
+title = "边境核查 A：47.20–47.38°N，119.40–119.65°E（VIIRS/MODIS {a_md} {a_utc}Z 至 {b_md} {b_utc}Z 持续低 FRP 火点）"
+footer = """黄色实线：中蒙国界（OpenStreetMap，LSIB/河流中线）；青色虚线：Natural Earth 10m 国界。数据：Copernicus Sentinel-2 L2A（Element84 Earth Search COG）。
+圆圈为对应时段 VIIRS/MODIS 火点（像元中心，VIIRS 375 m / MODIS 1 km，定位误差约 ±0.2–0.5 km）；哨兵-2 最晚无云影像为 {md} {utc}Z，早于这些火点出现时间，
+故只能显示火前/火锋到达前的地表状况与已有防火隔离带。"""
+
+[ignition-20261008-v2]
+landsat_swir = "Landsat 9 北京 {lt}\nSWIR 假彩色（30 m）"
+landsat_lst = "Landsat 9 北京 {lt}\nB10 地表温度（最高 {tmax} ℃）"
+unit = "℃"
+s2_swir = "哨兵-2C 北京 {lt}\nSWIR 假彩色（10 m）"
+fires = "VIIRS 首批火点\n{md} {a_lt}–{b_lt}（北京）"
+legend_title = "{md} 上午：火前影像与\n当日首批 VIIRS 火点"
+
+[s2-island-20261015]
+time = "{lt}（{utc}Z）"
+pass = "{sat} {time}：{n} 点"
+pass_area = "{sat} {time}：火区内 {n} 点"
+hot = "短波红外饱和像元，共 {n} 个 10 m 格"
+legend_title = "FIRMS 火点（北京时间）；饱和像元 = B12>4000 且 B11>3500\n数据 Copernicus Sentinel-2 L2A（Element84 COG）、NASA FIRMS"
+true = "真彩色（10 m）"
+swir = "短波红外 B12/B8A/B4（20 m）"
+title = "残火所在的未烧区南缘：{md} {lt}（{utc}Z）哨兵-2C"
+
+[border-south-zoom-20261013-v2]
+pre_true = "火前 {md} 真彩色"
+pre_swir = "火前 {md} 短波红外"
+ign_swir = "起火当天 {md} 短波红外"
+fire_true = "火中 {md} 真彩色"
+fire_swir = "火中 {md} 短波红外"
+dnbr = "dNBR（{a_md}→{b_md}），灰为云"
+title = "南段国界放大：哨兵-2，黄虚线为 OSM 国界"
+strip_x = 119.486
+
+[s2-south-20261013-v2]
+pre = "火中 {md} S2B 真彩色（10 m）"
+title = "南段国界：{md} 哨兵-2B"
+strip_dx = 0.0
+
+[s2-west-arxan-20261013-v2]
+pre = "火前 {md} S2C 真彩色（10 m）"
+title = "阿尔山以西国界段：{md} 哨兵-2B"
+burned = "线东过火区"
+
+[zone13]
+true = "{md} S2B 真彩色（10 m）"
+swir = "{md} S2B 短波红外（20 m）"
+dnbr = "dNBR {a_md}→{b_md}\n（灰为云和云影）"

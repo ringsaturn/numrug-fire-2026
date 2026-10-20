@@ -1,0 +1,82 @@
+# s2 group, Japanese. Placeholders as in en.toml. Ranges use 〜.
+
+[s2]
+arxan = "アルシャン"
+tloc = "{md} {lt}（UTC+8、{utc} UTC）"
+arrow_tail = 0.0
+true = "トゥルーカラー"
+swir = "短波赤外フォールスカラー B12/B8A/B4"
+panel_sep = "、"
+fires_n21 = "NOAA-21 VIIRS 火点（NASA）、{lt}（UTC+8、{utc} UTC）"
+dnbr_ticks = ["再生", "変化なし", "低", "中低", "中高", "高"]
+strip = "既存の帯状地"
+
+[s2-overview]
+true = "トゥルーカラー B4/B3/B2"
+swir = "短波赤外フォールスカラー B12/B8A/B4"
+panel = "{sat}  {time}\n{band}、40 m に再サンプリング"
+fires_1008 = "VIIRS 火点（NASA）、初検出\n{a_lt}〜{b_lt}（UTC+8、{a_utc}〜{b_utc} UTC）"
+title = "Sentinel-2 L2A 出火前（{d1}）・出火当日（{d2}）・延焼中（{d3}）の比較：モンゴル・ドルノド県〜アルシャン国境の火災"
+footer = """黄色実線：国境（OSM）、LSIB／河川中心線による；水色破線：国境（Natural Earth）、10m、OSM の線との差 0.5〜2 km。白い四角：アルシャン市街。黒い三角形の部分（{d1}・{d3} は左上、{d2} は右下）は軌道の観測幅の外でデータなし。
+短波赤外画像では、明るい赤／橙＝燃焼中の延焼前線、黒褐色／暗い赤褐色＝焼失域、青紫＝煙、水色〜白＝雲。データ：Copernicus Sentinel-2、Element84 Earth Search COG。"""
+
+[s2-fronts-20261010]
+panel = "{label}  {sat} {time}\n{band}{sep}{res} m"
+se = "南東の延焼前線"
+nw = "北西の火頭"
+title = "Sentinel-2B 10 m フル解像度：{md} {lt}（UTC+8）の活動中の延焼前線"
+footer = """黄色実線：国境（OSM）、LSIB／河川中心線；水色破線：国境（Natural Earth）、10m。データ：Copernicus Sentinel-2 L2A（Element84 Earth Search COG）。
+明るい赤／橙黄＝燃焼中（B12 飽和）、青紫＝煙、黒褐色＝焼失域。丸は 25 分後の NOAA-21 VIIRS 火点（NASA）。"""
+
+[border-a]
+panel = "{label}\n{sat} {time}\n{band}{sep}{res} m"
+pre = "A 区域（アルシャン口岸付近） 出火前"
+during = "A 区域（アルシャン口岸付近） 延焼中"
+fires = "VIIRS/MODIS 火点（NASA、うち MODIS 2 点は FIRMS）\n{a_md} {a_lt}〜{b_md} {b_lt}（UTC+8）"
+title = "国境チェック A：47.20〜47.38°N、119.40〜119.65°E（{a_md} {a_lt}〜{b_md} {b_lt}（UTC+8、{a_md} {a_utc}〜{b_md} {b_utc} UTC）に低 FRP の火点が続く）"
+footer = """黄色実線：国境（OSM）、LSIB／河川中心線；水色破線：国境（Natural Earth）、10m。データ：Copernicus Sentinel-2 L2A（Element84 Earth Search COG）。
+丸は対応期間の VIIRS/MODIS 火点（NASA）（画素中心、VIIRS 375 m／MODIS 1 km、位置誤差 約 ±0.2〜0.5 km）。
+雲のない最後の Sentinel-2 画像は {md} {lt}（UTC+8、{utc} UTC）で、これらの火点より前のため、出火前／延焼前線の到達前の地表と既存の防火帯しか写っていない。"""
+
+[ignition-20261008-v2]
+landsat_swir = "Landsat 9、{lt}（UTC+8）\n短波赤外フォールスカラー（30 m）"
+landsat_lst = "Landsat 9、{lt}（UTC+8）\nB10 地表面温度（最高 {tmax} °C）"
+unit = "°C"
+s2_swir = "Sentinel-2C、{lt}（UTC+8）\n短波赤外フォールスカラー（10 m）"
+fires = "最初の VIIRS 火点（NASA）\n{md} {a_lt}〜{b_lt}（UTC+8）"
+legend_title = "{md} 午前：出火前の画像と\n当日最初の VIIRS 火点（NASA）"
+
+[s2-island-20261015]
+time = "{lt}（{utc} UTC）"
+pass = "{sat} {time}：{n} 点"
+pass_area = "{sat} {time}：火災域内 {n} 点"
+hot = "短波赤外の飽和画素：10 m 格子 {n} 個"
+legend_title = "FIRMS 火点（UTC+8）；飽和画素 = B12>4000 かつ B11>3500\nデータ：Copernicus Sentinel-2 L2A（Element84 COG）、NASA FIRMS"
+true = "トゥルーカラー（10 m）"
+swir = "短波赤外 B12/B8A/B4（20 m）"
+title = "残火のある未焼失域の南縁：{md} {lt}（UTC+8、{utc} UTC）、Sentinel-2C"
+
+[border-south-zoom-20261013-v2]
+pre_true = "出火前 {md} トゥルーカラー"
+pre_swir = "出火前 {md} 短波赤外"
+ign_swir = "出火当日 {md} 短波赤外"
+fire_true = "延焼中 {md} トゥルーカラー"
+fire_swir = "延焼中 {md} 短波赤外"
+dnbr = "dNBR（{a_md}→{b_md}）、灰色＝雲"
+title = "南部国境の拡大：Sentinel-2、黄色破線＝国境（OSM）"
+strip_x = 119.486
+
+[s2-south-20261013-v2]
+pre = "延焼中 {md} S2B トゥルーカラー（10 m）"
+title = "南部国境区間：{md} Sentinel-2B"
+strip_dx = 0.0
+
+[s2-west-arxan-20261013-v2]
+pre = "出火前 {md} S2C トゥルーカラー（10 m）"
+title = "アルシャン西方の国境区間：{md} Sentinel-2B"
+burned = "国境線の東側の\n焼失域"
+
+[zone13]
+true = "{md} S2B トゥルーカラー（10 m）"
+swir = "{md} S2B 短波赤外（20 m）"
+dnbr = "dNBR {a_md}→{b_md}\n（灰色＝雲・雲の影）"

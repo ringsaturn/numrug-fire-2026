@@ -1,0 +1,73 @@
+# Weather and smoke figures. Prepare steps run in order; README.md lists sources, sizes and credentials.
+
+[[prepare]]
+name = "weather-base"
+run = ["scripts/fetch_base.py"]
+about = "Natural Earth 50 m coastline, country and province lines, pinned commit (3 MB)"
+
+[[prepare]]
+name = "gefs-aerosols"
+run = ["scripts/gefs_get.py"]
+about = "GEFS-Aerosols 0.25° AOD and surface PM2.5, 11 runs 10-08 00Z..10-13 00Z, by .idx byte range from noaa-gefs-pds (900 MB)"
+
+[[prepare]]
+name = "aq-fetch"
+run = ["scripts/aq_fetch.py"]
+about = "China national air-quality sites, hourly, 10-07..10-14, quotsoft.net daily CSVs (12 MB)"
+
+[[prepare]]
+name = "aq-cities"
+run = ["scripts/aq_cities.py"]
+about = "city-mean PM2.5/PM10/CO for seven cities -> data/weather/aq/city_hourly.csv"
+
+[[prepare]]
+name = "gefs-points"
+run = ["scripts/gefs_points.py"]
+about = "GEFS-Aerosols bilinear at the cities and fire-box totals -> data/weather/gefs-points/ (20 s)"
+
+[[figure]]
+name = "smoke-pm25-maps"
+run = ["scripts/smoke_maps.py"]
+
+[[figure]]
+name = "smoke-pm25-series"
+run = ["scripts/smoke_series.py"]
+
+[[prepare]]
+name = "openmeteo"
+run = ["scripts/om_runs.py"]
+about = "Open-Meteo forecasts at the fire as served on 10-13, stitched from ~180 archived single runs (4 MB)"
+
+[[figure]]
+name = "fire-weather-20261013"
+run = ["scripts/fire_weather.py"]
+
+[[figure]]
+name = "models-daily-20261013-2000"
+run = ["scripts/models_daily.py"]
+
+[[prepare]]
+name = "xue-runs"
+run = ["scripts/xue_build.sh"]
+about = "ECMWF 10-13 00Z, GFS 10-13 06Z, IFS HRES 10-13 00Z, AIFS 10-13 06Z rebuilt as Zarr stores by xue build-local (needs XUE_REPO; 7.5 GB raw)"
+
+[[prepare]]
+name = "xue-case"
+run = ["scripts/xue_case.py"]
+about = "maps, point series and the archived 10-13 12Z soundings -> data/weather/xue-case/"
+
+[[figure]]
+name = "upper-20261013-2000"
+run = ["scripts/synoptic.py", "upper"]
+
+[[figure]]
+name = "surface-20261013-2000"
+run = ["scripts/synoptic.py", "surface"]
+
+[[figure]]
+name = "meteogram-20261013-2000"
+run = ["scripts/synoptic.py", "meteogram"]
+
+[[figure]]
+name = "skewt-20261013-2000-v2"
+run = ["scripts/skewt.py"]

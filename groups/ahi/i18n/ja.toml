@@ -1,0 +1,86 @@
+# ahi group, Japanese.
+
+[fonts]
+# The published renders use the W3 weight; plain "Hiragino Sans" resolves to W4.
+family = ["Hiragino Sans W3", "Noto Sans CJK JP", "DejaVu Sans"]
+
+[map]
+arxan = "アルシャン"
+mongolia = "モンゴル"
+china = "中国"
+lon = "経度（°E）"
+lat = "緯度（°N）"
+
+[cover]
+stamp = "ひまわり9号 AHI（JMA）· {mdhm}（UTC+8）"
+
+[b07]
+font_size = 9
+panel_title_size = 9
+panel_title = "{time}（UTC+8）· {label}"
+stats = "ホットスポット {n} 画素\n最大 {bt} K"
+cbar = "B07（3.9 µm）輝度温度（K）"
+
+[b07.key]
+title = "ひまわり9号 B07 輝度温度：主要時刻"
+20261008_0440 = "初検出から 30 分（昼）"
+20261008_1700 = "夜間の再燃"
+20261009_0400 = "10/09 昼"
+20261010_0500 = "10/10 昼"
+20261010_1010 = "10/10 夕方のピーク"
+20261010_1200 = "10/10 夜間の強い燃焼"
+20261011_0500 = "10/11 昼のピーク"
+20261012_0440 = "最新時刻"
+
+[b07.evening]
+title = "ひまわり9号 B07 輝度温度：10/12 午後から夜間"
+20261012_0440 = "前報の最終時刻"
+20261012_0530 = "午後の放射ピーク"
+20261012_0630 = "B07 飽和"
+20261012_0710 = "午後後半"
+20261012_0830 = "日没前"
+20261012_0920 = "夜に入ってからの放射ピーク"
+20261012_1030 = "夜間"
+20261012_1140 = "最新時刻"
+
+[progression]
+track_label = "{mdhm}"
+title = "ひまわり9号 AHI 延焼前線の進行：2 km 画素ごとの初検出時刻（2 時刻以上で検出）\n黒線：12 時間（UTC+8 の 00:00〜12:00 / 12:00〜24:00）ごとのホットスポット加重重心、区間の中点に表示"
+cbar = "現地時間（UTC+8）"
+footer = "データ：ひまわり9号 AHI L1b B07/B14、10 分ごと、10/08 02:00〜10/12 12:40（UTC+8、10/07 18:00〜10/12 04:40 UTC）；視差補正なし（地表火点で <1 km）；画素は約 2.6×3.6 km。"
+
+[latest]
+lead_r2 = "ひまわり9号 AHI 直近 3 時間のホットスポット画素"
+lead_r3 = "ひまわり9号 AHI 直近 3 時間のホットスポット画素"
+lead_r5 = "ひまわり9号 AHI 第 5 報の新規期間のホットスポット画素"
+title = "{lead}：{start}〜{end}（UTC+8、{n} 時刻）\n四角の大きさ ∝ 検出回数、色 = 最終検出時刻；破線 = 国境（OSM）"
+cbar = "現地時間（UTC+8）"
+footer = "データ：ひまわり9号 AHI L1b B07/B14、10 分ごと（AWS noaa-himawari9）；画素は約 2.6×3.6 km、視差補正なし；四角は画素中心に描画。"
+
+[vis]
+time = "{ymd} {hm}（UTC+8、{hm_utc} UTC）"
+title_smoke = "ひまわり9号 AHI 可視：煙　{time}"
+title_plain = "ひまわり9号 AHI 可視　{time}"
+b03 = "B03 赤 0.64 µm（直下点 0.5 km）、"
+outline = "赤枠 = AHI ホットスポット"
+no_hotspots = "この時刻の AHI ホットスポットなし"
+truecolour = "トゥルーカラー B03/B02（B04 で緑補正）/B01（1 km）"
+border_ne = "Natural Earth 10m"
+border_osm = "OSM"
+footer = "データ：ひまわり9号 AHI L1b（AWS noaa-himawari9）。黄色破線 = 国境（{border}）、★ = アルシャン市。レイリー散乱・太陽天頂角の補正なし。"
+
+[timeseries]
+legend_size = 8.5
+title = "ひまわり9号 AHI 静止衛星ホットスポット時系列：モンゴル東端、アルシャン西方の火災（46.3〜47.8°N、118.4〜120.4°E）"
+ahi_pixels = "ひまわり9号 AHI ホットスポット画素数（2 km、10 分）"
+ahi_pixels_axis = "AHI ホットスポット画素数"
+viirs_count = "VIIRS {sat} 通過ごとの火点数（375 m）"
+viirs_count_axis = "VIIRS 火点数（1 回の通過）"
+dt_excess = "Σ（BT7−BT14 の背景値からの超過）、放射強度の代替指標"
+dt_excess_axis = "Σ ΔT 超過（K）"
+viirs_frp = "VIIRS {sat} 総 FRP"
+viirs_frp_axis = "VIIRS 総 FRP（MW）"
+bt7_max = "領域内の最大 BT7（3.9 µm）"
+saturated = "B07 飽和画素（≥399 K）あり"
+bt7_max_axis = "最大 BT7（K）"
+footer = "データ：JMA/NOAA ひまわり9号 AHI L1b 全球 B07/B14（AWS noaa-himawari9）、10/08 02:00〜10/13 22:00（UTC+8、10/07 18:00〜10/13 14:00 UTC）；VIIRS 火点（NASA）。灰色の網掛けは夜間（太陽天頂角 ≥ 85°）。\n検出：BT7>320 K（昼）/310 K（夜）、または BT7−BT14 が 21×21 背景平均より 4σ 以上かつ >10 K；BT14 で雲を除外。"

@@ -1,0 +1,110 @@
+# Weather and smoke figures: Chinese (wording of the published figures). One table per figure.
+
+[smoke-pm25-maps]
+title = "地面 PM2.5（µg/m³）：底色为 GEFS-Aerosols 模式，圆点为站点实测城市均值（同一色标），红星为火场；空心圆为该时无数据的城市"
+title_size = 10
+panel = "{md} {h:02d}Z 起报 +{lead} h · {tag}"
+without_fire = "不含本次火"
+with_fire = "含本次火"
+row = "{t}（北京时间）"
+city_value = "{city} {v:.0f}"
+songyuan_dx = 0
+
+[smoke-pm25-maps.city]
+Hailar = "海拉尔"
+Baicheng = "白城"
+Qiqihar = "齐齐哈尔"
+Tongliao = "通辽"
+Songyuan = "松原"
+Xilinhot = "锡林浩特"
+Ulanhot = "乌兰浩特"
+
+[smoke-pm25-series]
+title = "实测（国控站城市均值，北京时间）与 GEFS-Aerosols 0.25° 模式（城市处双线性插值，3 小时一值）"
+panel = "{city}：地面 PM2.5（µg/m³）"
+no_fire = "模式·不含本次火（{md} {h:02d}Z）"
+with_fire = "模式·含本次火（{md} {h:02d}Z）"
+observed = "实测 PM2.5"
+co = "实测 CO（mg/m³，蓝线）"
+tick = "{md}\n{H:02d}时"
+legend_size = 7.5
+
+[smoke-pm25-series.city]
+Hailar = "海拉尔"
+Baicheng = "白城"
+
+[fire-weather-20261013]
+title = "火区 47.0°N 119.4°E 逐时气象（Open-Meteo 历史预报/最佳模式拼接，0.1°–0.25° 格点）"
+t2m = "2 m 气温 (°C)"
+td = "露点 (°C)"
+precip = "降水 mm/h"
+rh = "相对湿度 %"
+wind = "10 m 风速"
+gust = "阵风"
+tick = "{md} {H:02d}时"
+xlabel = "北京时间（紫线：报告时刻；之后为预报）"
+
+[models-daily-20261013-2000]
+title = "火区 47.0°N 119.5°E 四家模式逐日预报（北京时间日界，Open-Meteo）"
+this_report = "{model} 本报"
+legend_title = "实线：本报 / 虚线：第 4 报"
+rh = "日最小相对湿度 %"
+gust = "日最大阵风 m/s"
+dir = "14 时风向 °\n（●本报 ×第 4 报）"
+precip = "日降水 mm（本报）"
+tick = "{md}"
+
+[models-daily-20261013-2000.compass]
+n = "北"
+e = "东"
+s = "南"
+w = "西"
+
+# Shared by upper, surface and meteogram (synoptic.py).
+[synoptic]
+local = "{t} UTC+8"
+valid = "有效 {t}"
+jet = "250 hPa 风速 m/s"
+rain = "降水率 mm/h"
+
+[upper-20261013-2000]
+title = "500 hPa 位势高度（等值线 gpm，红线 = 5880）与 250 hPa 急流（色阶、风羽）"
+
+[surface-20261013-2000]
+title = "海平面气压（等值线 hPa）、10 m 风（风羽 kt）、降水率（色阶）；红虚线 = 10 m 风 ≥ 17.2 m/s"
+
+[meteogram-20261013-2000]
+title = "{name}（{lat:.2f}°N {lon:.2f}°E 最近格点）模式气象图，时间 UTC+8"
+point_name = "火区"
+mslp = "海平面气压 hPa"
+wind = "风速 m/s"
+rate = "降水率 mm/h"
+accum = "累积降水 mm\n（自各模式起报）"
+w10 = " 10 m 风"
+gust = " 阵风"
+gale = "17.2 m/s (烈风)"
+strong = "10.8 m/s (强风)"
+tick = "{md}\n{hm}"
+
+[skewt-20261013-2000-v2]
+title = "探空 {date} {hm}（北京时间，{utc_h:02d}Z）"
+panel = "{name} {wmo}（{lat:.1f}°N {lon:.1f}°E）"
+t = "气温 T"
+td = "露点 Td"
+xlabel = "温度 °C（斜线坐标）"
+barbs = "右侧风羽：风向风速（kt）"
+values = "{name}：PW {pw}，冻结高度 {fl}\n    850–500 递减率 {lr}，对流层顶 {tp}"
+
+[skewt-20261013-2000-v2.station]
+50527 = "海拉尔"
+54102 = "锡林浩特"
+54135 = "通辽"
+
+# These two were drawn in PingFang SC; Hiragino Sans GB's full-width ° spreads "47.0° N" and "(°C)".
+[fire-weather-20261013.fonts]
+files = ["/System/Library/AssetsV2/com_apple_MobileAsset_Font*/*/AssetData/PingFang.ttc"]
+family = ["PingFang SC", "Noto Sans CJK SC", "Hiragino Sans GB", "DejaVu Sans"]
+
+[models-daily-20261013-2000.fonts]
+files = ["/System/Library/AssetsV2/com_apple_MobileAsset_Font*/*/AssetData/PingFang.ttc"]
+family = ["PingFang SC", "Noto Sans CJK SC", "Hiragino Sans GB", "DejaVu Sans"]

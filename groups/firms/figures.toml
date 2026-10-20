@@ -1,0 +1,79 @@
+# Fire-spread animation and the FIRMS-style detection figures.
+# Fetch steps skip files already present; derive steps always rewrite their outputs under data/firms/.
+
+[[prepare]]
+name = "firms-fetch-viirs-l2"
+about = "VIIRS 375 m active-fire L2 granules (LP DAAC v002 + LANCE NRT), Earthdata ~/.netrc, ~230 MB"
+run = ["scripts/fetch_earthdata.sh", "snapshot/viirs_l2_granules.txt", "l2"]
+
+[[prepare]]
+name = "firms-fetch-modis-l2"
+about = "MOD14/MYD14 C6.1 granules 10-07 to 10-11 (LP DAAC), Earthdata ~/.netrc, 9 MB"
+run = ["scripts/fetch_earthdata.sh", "snapshot/modis_l2_granules.txt", "modis_l2"]
+
+[[prepare]]
+name = "firms-fetch-dem"
+about = "Copernicus DEM GLO-90, six 1° tiles (AWS open data), 27 MB"
+run = ["scripts/fetch_dem.sh"]
+
+[[prepare]]
+name = "firms-fetch-gibs"
+about = "NASA GIBS WMS VIIRS M11-I2-I1 images: 10-16 NOAA-21 (animation), 10-12 NOAA-21 and 10-14 NOAA-20 (scar masks)"
+run = ["scripts/fetch_gibs.py"]
+
+[[prepare]]
+name = "firms-fetch-osm"
+about = "OpenStreetMap border: four API map tiles and one Overpass query"
+run = ["scripts/fetch_osm.py"]
+
+[[prepare]]
+name = "firms-border"
+about = "OSM downloads -> border_osm_mapbbox.json, border_osm_overpass.json"
+run = ["scripts/border.py"]
+
+[[prepare]]
+name = "firms-viirs-l2"
+about = "VIIRS L2 granules -> viirs_l2.csv"
+run = ["scripts/viirs_l2.py"]
+
+[[prepare]]
+name = "firms-modis-l2"
+about = "MOD14/MYD14 granules -> modis_l2.csv"
+run = ["scripts/modis_l2.py"]
+
+[[prepare]]
+name = "firms-tables"
+about = "r2/r3 detection and overpass tables (main_*.csv, passes_*.csv)"
+run = ["scripts/tables.py"]
+
+[[figure]]
+name = "arxan-fire-spread"
+run = ["scripts/anim.py", "--video", "full"]
+
+[[figure]]
+name = "arxan-fire-spread-960"
+run = ["scripts/anim.py", "--video", "960"]
+
+[[figure]]
+name = "arxan-fire-spread-poster"
+run = ["scripts/anim.py", "--poster"]
+
+[[figure]]
+name = "firms-progression-20261013"
+run = ["scripts/fig_progression.py"]
+
+[[figure]]
+name = "firms-timeseries-20261013"
+run = ["scripts/fig_timeseries.py"]
+
+[[figure]]
+name = "firms-east-20261012"
+run = ["scripts/fig_east.py"]
+
+[[figure]]
+name = "firms-20261013-1014-0911"
+run = ["scripts/fig_1013_1014.py"]
+
+[[figure]]
+name = "firms-20261014-1015"
+run = ["scripts/fig_1014_1015.py"]

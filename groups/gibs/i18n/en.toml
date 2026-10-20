@@ -1,0 +1,102 @@
+# gibs group, English. One table per figure. Times are UTC+8 unless marked UTC.
+
+[gibs-wide]
+# line styles (the published Chinese figures style some borders differently)
+osm = { color = "yellow", lw = 1.0 }
+ne = { color = "cyan", ls = "--", lw = 0.8 }
+panel = "{sat}  ~{local} UTC+8 ({utc} UTC)"
+arxan = "Arxan"
+border_osm = "Border (OSM)"
+border_ne = "Border (Natural Earth)"
+legend_title = "{md} true colour\n44–50°N, 114–124°E\nNASA GIBS daily mosaic"
+
+[final-scar-20261012]
+panel = "{sat}\n{local} UTC+8 · {area} km²\n{outside} km² outside the border line"
+title_size = 9
+top = 0.89
+hspace = 0.36
+arxan = "Arxan"
+scar = "Burned area\n(auto-extracted)"
+border_osm = "Border (OSM)"
+border_ne = "Border (Natural Earth)"
+summary = "Range of five scenes\n{min}–{max} km²\nmedian {median} km²"
+
+[final-scar-20261013]
+# line styles (the published Chinese figures style some borders differently)
+osm = { color = "yellow", lw = 1.3 }
+top = 0.925
+hspace = 0.25
+head = "{md} {sat} {local} UTC+8"
+head_g75 = "{md} {sat} {local} UTC+8 (green<75)"
+head_g110 = "{md} {sat} (sensitivity: green<110)"
+panel = "{head}\nmain patch {main} km², all {all} km²,\n{outside} km² outside the border line"
+arxan = "Arxan"
+main = "Main patch"
+all = "All patches ≥5 km² (numbers: detached patches, km²)"
+border_osm = "Border (OSM)"
+fy4c = "FY-4C hotspots ①③"
+
+[gibs-daily]
+# line styles (the published Chinese figures style some borders differently)
+osm = { color = "yellow", lw = 0.9 }
+ne = { color = "cyan", ls = "--", lw = 0.8 }
+panel = "{md} {sat}\n~{local} UTC+8"
+arxan = "Arxan"
+true_colour = "True colour"
+false_colour = "False colour"
+
+[scar-delta-20261015]
+# line styles (the published Chinese figures style some borders differently)
+ref_line = { color = "white", halo = 2.0, legend_halo = 2.6 }
+osm = { color = "yellow", lw = 1.2, halo = 2.2, legend_halo = 2.6 }
+title = "Burn scar change: {d12} → {d14} → {d15}"
+ref = "{md} {local} UTC+8 NOAA-21\nreference burn scar {area} km²"
+new_1014 = "{md} {local} UTC+8 S-NPP\nnew inside the unburned island {area} km²"
+new_1015 = "{md} {local} UTC+8 NOAA-21 (cloud over south half)\nnew inside the unburned island {area} km²"
+arxan = "Arxan"
+legend_ref = "10-12 NOAA-21 burn scar (reference)"
+legend_new = "New burn scar since (holes not filled)"
+border_osm = "Border (OSM)"
+legend_firms = "FIRMS daytime detections, same day"
+notes = """Times UTC+8. Data: NASA GIBS VIIRS Corrected
+Reflectance M11-I2-I1, NASA FIRMS.
+Same thresholds as before: red/green>1.4,
+green<75, opening, patches ≥5 km²,
+closing ×3.
+
+Most of the 10-14 gain had already burned
+on 10-12 but was hidden by smoke or missed
+by the threshold; about 80 km² burned new
+between 10-13 and 10-14, inside the
+unburned island on the Mongolian side."""
+
+[border-gibs-20261013]
+# line styles (the published Chinese figures style some borders differently)
+osm = { color = "yellow", lw = 1.8 }
+title = "({letter}) {zone}: burn scar edge and border on GIBS imagery"
+zone_south = "South section"
+zone_west-arxan = "West of Arxan"
+panel = "{md} {local} UTC+8 · {sat}\nburned outside the border line in box\n{area} km², farthest {dmax} km"
+terra_g110 = "Terra 7-2-1 (green<110)"
+scar_edge = "Burn scar edge"
+border_osm = "Border (OSM)"
+box = "Area of interest"
+
+[border-east-20261012]
+title_falsecolor = "{md} eastern fire front, border check: false colour and fire detections"
+title_truecolor = "{md} eastern fire front, border check: true colour"
+panel = "{local} UTC+8 · {sat} {bands}"
+true_colour = "true colour"
+border_osm = "Border (OSM)"
+boxes = "Check boxes east of the border\n(two clusters, S and N)"
+firms_mng = "FIRMS detections, same overpass\n(Mongolian side)"
+firms_east = "FIRMS detections, same overpass\n(east of the OSM line)"
+where = "{md}, 13–17 km west of Arxan"
+
+[south-scar-20261016]
+# line styles (the published Chinese figures style some borders differently)
+osm = { color = "yellow", ls = "-", lw = 1 }
+before = "{md} {sat}: clear sky, no burn scar"
+after = "{md} {sat}: new burn scar"
+mongolia = "Mongolia"
+china = "China"

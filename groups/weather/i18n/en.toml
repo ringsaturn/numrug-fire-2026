@@ -1,0 +1,105 @@
+# Weather and smoke figures: English. One table per figure.
+
+[smoke-pm25-maps]
+title = "Surface PM2.5 (µg/m³): shading GEFS-Aerosols model, dots observed city means (same scale), red star the fire; open circles: no data at that hour"
+title_size = 9
+panel = "run {md} {h:02d}Z +{lead} h · {tag}"
+without_fire = "without this fire"
+with_fire = "with this fire"
+row = "{t} UTC+8"
+city_value = "{city} {v:.0f}"
+# Songyuan's label is centred below its dot; nudged left (points) so it ends inside the frame.
+songyuan_dx = -14
+
+[smoke-pm25-maps.city]
+Hailar = "Hailar"
+Baicheng = "Baicheng"
+Qiqihar = "Qiqihar"
+Tongliao = "Tongliao"
+Songyuan = "Songyuan"
+Xilinhot = "Xilinhot"
+Ulanhot = "Ulanhot"
+
+[smoke-pm25-series]
+title = "Observed (national monitoring stations, city mean, local time UTC+8) vs GEFS-Aerosols 0.25° model (bilinear at the city, 3-hourly)"
+panel = "{city}: surface PM2.5 (µg/m³)"
+no_fire = "model, no fire ({md} {h:02d}Z)"
+with_fire = "model + fire ({md} {h:02d}Z)"
+observed = "observed PM2.5"
+co = "observed CO (mg/m³, blue line)"
+tick = "{md}\n{H:02d}:00"
+legend_size = 7.5
+
+[smoke-pm25-series.city]
+Hailar = "Hailar"
+Baicheng = "Baicheng"
+
+[fire-weather-20261013]
+title = "Hourly weather at the fire, 47.0°N 119.4°E (Open-Meteo historical forecast / best-match blend, 0.1°–0.25° grid)"
+t2m = "2 m temperature (°C)"
+td = "Dew point (°C)"
+precip = "Precipitation mm/h"
+rh = "Relative humidity %"
+wind = "10 m wind speed"
+gust = "Gust"
+tick = "{md} {H:02d}:00"
+xlabel = "Local time (UTC+8) (magenta line: report time; forecast after it)"
+
+[models-daily-20261013-2000]
+title = "Daily forecasts of four models at the fire, 47.0°N 119.5°E (days in UTC+8, Open-Meteo)"
+this_report = "{model} this report"
+legend_title = "solid: this report / dotted: report 4"
+rh = "Daily min RH %"
+gust = "Daily max gust m/s"
+dir = "Wind dir. at 14:00 °\n(● this report × report 4)"
+precip = "Daily precip. mm\n(this report)"
+tick = "{md}"
+
+[models-daily-20261013-2000.compass]
+n = "N"
+e = "E"
+s = "S"
+w = "W"
+
+# Shared by upper, surface and meteogram (synoptic.py).
+[synoptic]
+local = "{t} UTC+8"
+valid = "valid {t}"
+jet = "250 hPa wind m/s"
+rain = "rain rate mm/h"
+
+[upper-20261013-2000]
+# The 5880 gpm contour is never reached in these panels (highest 5,828 gpm).
+title = "500 hPa height (contours gpm; red = 5880, not reached) and 250 hPa jet (shading, barbs)"
+
+[surface-20261013-2000]
+# The 17.2 m/s contour is reached only in two small patches at the map edge
+# (GFS 10-13 near 132°E 41°N, ECMWF 10-17 near 120°E 40°N; max 19.2 and 19.8 m/s).
+title = "Sea-level pressure (contours hPa), 10 m wind (barbs kt), rain rate (shading);\nred dashed = 10 m wind ≥ 17.2 m/s (only small patches at the map edge: GFS 10-13, ECMWF 10-17)"
+
+[meteogram-20261013-2000]
+title = "{name} ({lat:.2f}°N {lon:.2f}°E nearest cell) model meteogram, times UTC+8"
+point_name = "Fire area"
+mslp = "Sea-level pressure hPa"
+wind = "wind m/s"
+rate = "rain rate mm/h"
+accum = "accumulated mm\n(from each run's start)"
+w10 = " 10 m wind"
+gust = " gust"
+gale = "17.2 m/s (gale)"
+strong = "10.8 m/s (strong)"
+tick = "{md}\n{hm}"
+
+[skewt-20261013-2000-v2]
+title = "Soundings {date} {hm} UTC+8 ({utc} UTC)"
+panel = "{name} {wmo} ({lat:.1f}°N {lon:.1f}°E)"
+t = "Temperature T"
+td = "Dew point Td"
+xlabel = "Temperature °C (skewed)"
+barbs = "Barbs on the right: wind (kt)"
+values = "{name}: PW {pw}, freezing level {fl}\n    850–500 hPa lapse rate {lr},\n    tropopause {tp}"
+
+[skewt-20261013-2000-v2.station]
+50527 = "Hailar"
+54102 = "Xilinhot"
+54135 = "Tongliao"

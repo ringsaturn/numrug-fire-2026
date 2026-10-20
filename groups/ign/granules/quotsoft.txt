@@ -1,0 +1,17 @@
+# China national real-time city / site air quality, quotsoft.net mirror (no login). Daily CSVs, UTC+8.
+https://quotsoft.net/air/data/china_cities_20261007.csv
+https://quotsoft.net/air/data/china_cities_20261008.csv
+https://quotsoft.net/air/data/china_cities_20261009.csv
+https://quotsoft.net/air/data/china_cities_20261010.csv
+https://quotsoft.net/air/data/china_cities_20261011.csv
+https://quotsoft.net/air/data/china_cities_20261012.csv
+https://quotsoft.net/air/data/china_cities_20261013.csv
+https://quotsoft.net/air/data/china_cities_20261014.csv
+https://quotsoft.net/air/data/china_sites_20261007.csv
+https://quotsoft.net/air/data/china_sites_20261008.csv
+https://quotsoft.net/air/data/china_sites_20261009.csv
+https://quotsoft.net/air/data/china_sites_20261010.csv
+https://quotsoft.net/air/data/china_sites_20261011.csv
+https://quotsoft.net/air/data/china_sites_20261012.csv
+https://quotsoft.net/air/data/china_sites_20261013.csv
+https://quotsoft.net/air/data/china_sites_20261014.csv

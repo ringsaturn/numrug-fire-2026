@@ -1,0 +1,87 @@
+# NASA GIBS imagery and burn-scar figures. Prepare steps run in order; see README.md for sources and sizes.
+
+[[prepare]]
+name = "gibs-fetch-tiles"
+run = ["scripts/fetch_gibs.py"]
+about = "40 GIBS Corrected Reflectance WMS tiles, NRT layers, 10-07..10-16 (22 MB)"
+
+[[prepare]]
+name = "gibs-fetch-borders"
+run = ["scripts/fetch_borders.py"]
+about = "OSM API extracts (4 tiles, 10 MB), Overpass admin_level=2 ways, Natural Earth 10m boundary lines v5.1.0"
+
+[[prepare]]
+name = "gibs-fetch-firms"
+run = ["scripts/fetch_firms.sh"]
+about = "LANCE FIRMS NRT daily archive for 2026-10-12, four sensors (9 MB, Earthdata login in ~/.netrc)"
+
+[[prepare]]
+name = "gibs-borders"
+run = ["scripts/derive_borders.py"]
+about = "border line lists -> data/gibs/border/border_{osm,osm_south,ne}.json"
+
+[[prepare]]
+name = "gibs-firms"
+run = ["scripts/derive_firms.py"]
+about = "10-12 FIRMS detections in the fire box, by side of the OSM border -> data/gibs/firms/firms_20261012.csv"
+
+[[prepare]]
+name = "gibs-scar"
+run = ["scripts/derive_scar.py"]
+about = "burn-scar masks and areas on the 10-12 and 10-13 zoom scenes -> data/gibs/scar/scar_{masks.npz,areas.json}"
+
+[[prepare]]
+name = "gibs-scar-delta"
+run = ["scripts/derive_scar_delta.py"]
+about = "new burned area 10-14 / 10-15 against the 10-12 NOAA-21 scar -> data/gibs/scar/scar_delta_20261015.json"
+
+[[prepare]]
+name = "gibs-south-scar"
+run = ["scripts/derive_south_scar.py"]
+about = "area of the separate scar south of the main one on 10-16 -> data/gibs/scar/south_scar_20261016.json"
+
+[[figure]]
+name = "south-scar-20261016"
+run = ["scripts/fig_south_scar.py"]
+
+[[figure]]
+name = "gibs-daily-1007-1009-v2"
+run = ["scripts/fig_gibs_daily.py", "a"]
+
+[[figure]]
+name = "gibs-daily-1010-1012-v3"
+run = ["scripts/fig_gibs_daily.py", "b"]
+published = { en = "gibs-daily-1010-1012-v2", ja = "gibs-daily-1010-1012-v2" }
+
+[[figure]]
+name = "gibs-wide-20261012-v2"
+run = ["scripts/fig_gibs_wide.py"]
+
+[[figure]]
+name = "final-scar-20261012-v3"
+run = ["scripts/fig_final_scar_1012.py"]
+published = { en = "final-scar-20261012-v2", ja = "final-scar-20261012-v2" }
+
+[[figure]]
+name = "final-scar-20261013-v2"
+run = ["scripts/fig_final_scar_1013.py"]
+
+[[figure]]
+name = "scar-delta-20261015"
+run = ["scripts/fig_scar_delta.py"]
+
+[[figure]]
+name = "border-gibs-20261013-south"
+run = ["scripts/fig_border_gibs.py", "south"]
+
+[[figure]]
+name = "border-gibs-20261013-west-arxan"
+run = ["scripts/fig_border_gibs.py", "west-arxan"]
+
+[[figure]]
+name = "border-east-20261012-falsecolor"
+run = ["scripts/fig_border_east.py", "falsecolor"]
+
+[[figure]]
+name = "border-east-20261012-truecolor"
+run = ["scripts/fig_border_east.py", "truecolor"]

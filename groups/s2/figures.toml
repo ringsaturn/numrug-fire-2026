@@ -1,0 +1,68 @@
+# Sentinel-2 / Landsat close-ups of the burn scar, the fire fronts and the border.
+
+[[prepare]]
+name = "s2-borders"
+run = ["scripts/fetch_borders.py"]
+about = "OSM border ways (Overpass) and Natural Earth 10m boundary lines, clipped"
+
+[[prepare]]
+name = "s2-sentinel2"
+run = ["scripts/fetch_s2.py"]
+about = "Sentinel-2 L2A windows from Element84 Earth Search COGs (about 1 GB of .npy)"
+
+[[prepare]]
+name = "s2-landsat"
+run = ["scripts/fetch_landsat.py"]
+about = "Landsat 9 LC09_L2SP_122027_20261008 ignition box from Planetary Computer (7 MB)"
+
+[[prepare]]
+name = "s2-fires-fetch"
+run = ["scripts/fetch_fires.py"]
+about = "VIIRS 375 m and MODIS L2 active-fire granules from NASA Earthdata (~/.netrc, 85 MB)"
+
+[[prepare]]
+name = "s2-fires-tables"
+run = ["scripts/fire_tables.py"]
+about = "fire-box detection tables from the L2 granules"
+
+[[prepare]]
+name = "s2-dnbr"
+run = ["scripts/zones.py"]
+about = "dNBR rasters 10-05->10-10 / 10-13 and burned-area checks"
+
+[[prepare]]
+name = "s2-island-hot"
+run = ["scripts/island_hot.py"]
+about = "saturated SWIR pixels on 10-15"
+
+[[figure]]
+name = "s2-island-20261015"
+run = ["scripts/fig_island.py"]
+
+[[figure]]
+name = "s2-overview"
+run = ["scripts/fig_overview.py"]
+
+[[figure]]
+name = "ignition-20261008-v2"
+run = ["scripts/fig_ignition.py"]
+
+[[figure]]
+name = "s2-fronts-20261010"
+run = ["scripts/fig_crops.py", "fronts"]
+
+[[figure]]
+name = "border-a"
+run = ["scripts/fig_crops.py", "border-a"]
+
+[[figure]]
+name = "border-south-zoom-20261013-v2"
+run = ["scripts/fig_south_zoom.py"]
+
+[[figure]]
+name = "s2-south-20261013-v2"
+run = ["scripts/fig_zone13.py", "south"]
+
+[[figure]]
+name = "s2-west-arxan-20261013-v2"
+run = ["scripts/fig_zone13.py", "west"]

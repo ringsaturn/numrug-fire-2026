@@ -1,0 +1,82 @@
+# ahi group, Chinese. Wording follows the published zh figures; times are Beijing time (北京时间).
+
+[map]
+arxan = "阿尔山"
+mongolia = "蒙古国"
+china = "中国"
+lon = "经度 (°E)"
+lat = "纬度 (°N)"
+
+[cover]
+stamp = "Himawari-9 AHI (JMA) · {ymd} {hm} BJT"
+
+[b07]
+font_size = 9
+panel_title_size = 10
+panel_title = "{time} 北京 · {label}"
+stats = "热点 {n} 像元\nmax {bt} K"
+cbar = "B07（3.9 µm）亮温 K"
+
+[b07.key]
+title = "葵花 9 号 B07 亮温：关键时次"
+20261008_0440 = "首次检测后 30 分钟（白天）"
+20261008_1700 = "夜间复燃"
+20261009_0400 = "10-09 白天"
+20261010_0500 = "10-10 白天"
+20261010_1010 = "10-10 傍晚峰值"
+20261010_1200 = "10-10 夜间强燃"
+20261011_0500 = "10-11 白天峰值"
+20261012_0440 = "最新时次"
+
+[b07.evening]
+title = "葵花 9 号 B07 亮温：10-12 午后到夜间"
+20261012_0440 = "前一报告最后时次"
+20261012_0530 = "午后辐射峰值"
+20261012_0630 = "B07 饱和"
+20261012_0710 = "午后后段"
+20261012_0830 = "日落前"
+20261012_0920 = "入夜后辐射峰值"
+20261012_1030 = "夜间"
+20261012_1140 = "最新时次"
+
+[progression]
+title = "葵花9号 AHI 火线推进：各 2 km 像元首次检测时间（≥2 个时次检测）\n黑线 = 12 小时（北京时间 0–12 时 / 12–24 时）热点像元数加权质心，标注为时段中点（北京时间）"
+track_label = "{d:02d}日{H:02d}时"
+cbar = "首次被 AHI 检测为热点的时间（北京时间）"
+footer = "数据：Himawari-9 AHI L1b B07/B14，2026-10-07 18Z 至 10-12 04:40Z 每 10 分钟；视差未校正（火点高度近地，影响 <1 km）；AHI 像元在此纬度约 2.6×3.6 km。"
+
+[latest]
+lead_r2 = "葵花9号 AHI 近 3 小时热点像元"
+lead_r3 = "葵花9号 AHI 近 3 小时热点像元"
+lead_r5 = "葵花9号 AHI 第 5 报新时段热点像元"
+title = "{lead}：{start}–{end} 北京时间（{n} 个时次）\n方块大小 ∝ 检测次数，颜色 = 最后一次检测时间；虚线 = 中蒙边界（OSM）"
+cbar = "最后一次被检测为热点的时间（北京时间 {md}）"
+footer = "数据：Himawari-9 AHI L1b B07/B14 每 10 分钟（AWS noaa-himawari9）；像元约 2.6×3.6 km，位置未做视差校正；方块画在像元中心。"
+
+[vis]
+time = "{ymd_utc} {hm_utc} UTC（北京时间 {md} {hm}）"
+title_smoke = "葵花9号 AHI 可见光：烟羽　{time}"
+title_plain = "葵花9号 AHI 可见光　{time}"
+b03 = "B03 红光 0.64 µm（0.5 km 星下点），"
+outline = "红色轮廓 = AHI 热点"
+no_hotspots = "此时次无 AHI 热点"
+truecolour = "真彩色 B03/B02(+B04 绿通道校正)/B01（1 km）"
+border_ne = "Natural Earth 10m"
+border_osm = "OpenStreetMap"
+footer = "数据：Himawari-9 AHI L1b（AWS noaa-himawari9）；黄色虚线 = 中蒙边界（{border}），★ = 阿尔山市。未做瑞利/太阳天顶角校正。"
+
+[timeseries]
+legend_size = 8.5
+title = "葵花9号 AHI 静止卫星火点时间序列：蒙古国东端—阿尔山以西林草火（46.3–47.8°N，118.4–120.4°E）"
+ahi_pixels = "葵花9号 AHI 热点像元数（2 km，10 分钟）"
+ahi_pixels_axis = "AHI 热点像元数"
+viirs_count = "VIIRS {sat} 过境火点数（375 m）"
+viirs_count_axis = "VIIRS 火点数（单次过境）"
+dt_excess = "Σ(BT7−BT14 超出背景值)，辐射强度代用指标"
+dt_excess_axis = "Σ ΔT 超额 (K)"
+viirs_frp = "VIIRS {sat} 总 FRP"
+viirs_frp_axis = "VIIRS 总 FRP (MW)"
+bt7_max = "区域内最大 BT7 (3.9 µm)"
+saturated = "B07 饱和（≥399 K）像元出现"
+bt7_max_axis = "最大 BT7 (K)"
+footer = "数据：JMA/NOAA Himawari-9 AHI L1b 全圆盘 B07/B14（AWS noaa-himawari9），2026-10-07 18Z 至 10-13 14:00Z；VIIRS 火点（NASA）。灰色底纹为夜间（太阳天顶角 ≥ 85°）。\n检测：BT7>320 K（昼）/310 K（夜）或 BT7−BT14 超出 21×21 背景均值 4σ 且 >10 K；云筛 BT14。"

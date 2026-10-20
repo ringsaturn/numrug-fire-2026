@@ -1,0 +1,78 @@
+# Ignition (GK-2A, VIIRS) and smoke transport (TROPOMI, back trajectories, city air quality). See README.md.
+
+[[prepare]]
+name = "ign-gk2a-download"
+run = ["scripts/fetch.sh", "granules/gk2a.txt", "gk2a"]
+about = "GK-2A AMI L1B full disk sw038/ir105 (2 km) and vi006 (0.5 km), 10-08 03:40-04:20 UTC, NOAA open data (~2.2 GB)"
+
+[[prepare]]
+name = "ign-viirs-download"
+run = ["scripts/fetch.sh", "granules/viirs_l1b.txt", "viirs", "earthdata"]
+about = "VIIRS L1B + geolocation of the three 10-08 passes, NASA LAADS (Earthdata, ~1.5 GB)"
+
+[[prepare]]
+name = "ign-viirs-af-download"
+run = ["scripts/fetch.sh", "granules/viirs_af.txt", "viirs_af", "earthdata"]
+about = "VIIRS 375 m active fire L2 v002 of the same passes, NASA LP DAAC (Earthdata, 7 MB)"
+
+[[prepare]]
+name = "ign-s5p-download"
+run = ["scripts/fetch.sh", "granules/s5p.txt", "s5p", "earthdata"]
+about = "TROPOMI L2 OFFL CO + UV aerosol index, orbits 46602/46603/46616/46617, NASA GES DISC (Earthdata, ~1.7 GB)"
+
+[[prepare]]
+name = "ign-quotsoft-download"
+run = ["scripts/fetch.sh", "granules/quotsoft.txt", "quotsoft"]
+about = "China city/site hourly air quality 10-07..10-14, quotsoft.net mirror (16 MB)"
+
+[[prepare]]
+name = "ign-wind-download"
+run = ["scripts/fetch_wind.py"]
+about = "ECMWF IFS 0.25 hourly winds 10-09..10-12 on a 0.5 deg grid, Open-Meteo historical-forecast API (3 MB)"
+
+[[prepare]]
+name = "ign-gk2a-series"
+run = ["scripts/gk2a_series.py"]
+about = "GK-2A ignition-pixel brightness temperature, excess and scan time -> gk2a_ign_series.json"
+
+[[prepare]]
+name = "ign-viirs-crop"
+run = ["scripts/viirs_crop.py"]
+about = "VIIRS L1B resampled to a 375 m lat/lon grid around the fire -> viirs_*.npz"
+
+[[prepare]]
+name = "ign-viirs-af"
+run = ["scripts/viirs_af.py"]
+about = "VIIRS L2 fire detections of the 10-08 passes in the fire box -> viirs_af_1008.csv"
+
+[[prepare]]
+name = "ign-traj"
+run = ["scripts/traj.py"]
+about = "36 h kinematic back trajectories from Hailar, Baicheng, Ulanhot -> traj/back_traj.json"
+
+[[prepare]]
+name = "ign-aq"
+run = ["scripts/extract_aq.py"]
+about = "PM2.5/PM10/CO city and site series -> aq_hourly_long.csv"
+
+[[figure]]
+name = "ignition-gk2a-20261008-ir"
+run = ["scripts/fig_gk2a.py", "ir"]
+
+[[figure]]
+name = "ignition-gk2a-20261008-vis"
+run = ["scripts/fig_gk2a.py", "vis"]
+
+[[figure]]
+name = "ignition-viirs-20261008"
+run = ["scripts/fig_viirs.py"]
+
+[[figure]]
+name = "smoke-transport-s5p-20261011-1012-v2"
+run = ["scripts/fig_s5p.py"]
+published = { en = "smoke-transport-s5p-20261011-1012", ja = "smoke-transport-s5p-20261011-1012" }
+
+[[figure]]
+name = "pm25-hailar-baicheng-20261007-1014-v2"
+run = ["scripts/fig_pm25.py"]
+published = { en = "pm25-hailar-baicheng-20261007-1014", ja = "pm25-hailar-baicheng-20261007-1014" }

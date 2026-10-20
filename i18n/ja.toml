@@ -1,0 +1,16 @@
+[fonts]
+# Glob patterns; files not present are skipped. On Linux install Noto Sans CJK JP.
+files = ["/System/Library/Fonts/ヒラギノ角ゴシック W3.ttc", "/System/Library/Fonts/ヒラギノ角ゴシック W6.ttc"]
+family = ["Hiragino Sans", "Noto Sans CJK JP", "DejaVu Sans"]
+
+[fmt]
+md = "{m:02d}/{d:02d}"
+hm = "{H:02d}:{M:02d}"
+mdhm = "{m:02d}/{d:02d} {H:02d}:{M:02d}"
+ymd = "{Y}/{m:02d}/{d:02d}"
+thousands = ","
+decimal = "."
+
+[common]
+utc8 = "UTC+8"
+local_time_axis = "現地時間（UTC+8）"

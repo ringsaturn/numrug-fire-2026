@@ -1,0 +1,65 @@
+# The published zh figures of this group were drawn in PingFang SC; its narrower
+# digits keep the 119.25…119.60 ticks apart.
+[fonts]
+files = ["/System/Library/AssetsV2/com_apple_MobileAsset_Font*/*/AssetData/PingFang.ttc"]
+family = ["PingFang SC", "Noto Sans CJK SC", "Hiragino Sans GB", "DejaVu Sans"]
+
+# 中文（博客原文版本）。时间均为北京时间。
+
+["ignition-gk2a-20261008-ir"]
+title = "GK-2A 3.8 µm（2 km）：起火像元增温"
+panel = "北京 {time}"
+colorbar = "3.8 µm 亮温 K"
+ignition = "起火点"
+border = "OSM 国界"
+note = "数字：起火像元超出背景"
+excess_weight = "semibold"
+
+["ignition-gk2a-20261008-vis"]
+title = "GK-2A 0.64 µm（0.5 km）：起火点附近未见可辨烟羽"
+panel = "北京 {time}"
+
+["ignition-viirs-20261008"]
+title = "起火后最初三次 VIIRS 过境（{date}）：青色★为起火点 {lat}°N {lon}°E，虚线为 OSM 中蒙国界；数据 NASA LAADS VIIRS L1B"
+panel = "{sat} {local} 北京（{utc}Z）\n{product}"
+true_colour = "真彩色 M5/M4/M3（750 m）"
+i1 = "I1 可见光红光 0.64 µm（375 m）"
+false_colour = "假彩色 I3/I2/I1（375 m）"
+i4 = "I4 3.74 µm 亮温（火点通道）"
+stats = "VIIRS 火点（NASA）{n} 点 {frp:.0f} MW\nI4 最高 {i4max} K（背景 {i4bg} K）\n热像元 {hot} 个，观测天顶角 {vza}°"
+colorbar = "I4 亮温 K"
+arxan = "★阿尔山"
+arxan_size = 9
+
+["smoke-transport-s5p-20261011-1012-v2"]
+title = "TROPOMI 一氧化碳与紫外气溶胶指数，叠加后向轨迹"
+panel = "{date} {product}（{times}）"
+time_sep = "、"
+panel_size = 10
+co = "CO 总柱"
+ai = "UV 气溶胶指数"
+co_unit = "CO 总柱 mol/m²"
+ai_unit = "UV 气溶胶指数（354/388）"
+legend = "后向轨迹（{arrival}）"
+arrive_hailar = "到达海拉尔 {date} {H:02d} 时"
+arrive_baicheng = "到达白城 {date} {H:02d} 时"
+# the published label sits left of the triangle, left-aligned
+ignition_dx = -1.6
+ignition_ha = "left"
+
+["smoke-transport-s5p-20261011-1012-v2".place]
+ignition = "起火点"
+hailar = "海拉尔"
+arxan = "阿尔山"
+ulanhot = "乌兰浩特"
+baicheng = "白城"
+
+["pm25-hailar-baicheng-20261007-1014-v2"]
+title = "城市逐时空气质量（全国城市空气质量实时发布数据，quotsoft.net 镜像；北京时间）"
+hailar = "呼伦贝尔（海拉尔）：起火点正北约 260 km；{t} TROPOMI：低层 CO 舌从火区向北伸到约 48.7°N"
+baicheng = "白城：起火点东南约 300 km；TROPOMI {date} {t1}、{t2}（北京时间）：烟羽从火区伸向乌兰浩特—白城方向"
+peak = "峰值时段（后向轨迹经过火区）"
+ignition = "起火"
+xlabel = false
+# the published figure shows the mirror as fetched on 10-14 16:38, with the hours it lacked then
+mirror_as_published = true

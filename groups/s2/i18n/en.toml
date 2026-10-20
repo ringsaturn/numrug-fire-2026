@@ -1,0 +1,86 @@
+# s2 group: Sentinel-2 / Landsat figures. Placeholders: {md} short date, {ymd} date with year, {lt} local
+# time (UTC+8), {utc} UTC time, {m}/{d} month/day numbers; a_/b_ prefixes mark the start/end of a range.
+
+[s2]
+arxan = "Arxan"
+tloc = "{md} {lt} UTC+8 ({utc} UTC)"
+# Where the arrow leaves the top edge of an arrow label, as a fraction of the label width.
+arrow_tail = 0.3
+true = "True colour"
+swir = "SWIR false colour B12/B8A/B4"
+panel_sep = ", "
+fires_n21 = "NOAA-21 VIIRS active fire (NASA), {lt} UTC+8 ({utc} UTC)"
+dnbr_ticks = ["Regrowth", "Unchanged", "Low", "Mod-low", "Mod-high", "High"]
+strip = "Pre-existing strip"
+
+[s2-overview]
+true = "True colour B4/B3/B2"
+swir = "SWIR false colour B12/B8A/B4"
+panel = "{sat}  {time}\n{band}, resampled to 40 m"
+fires_1008 = "VIIRS active fire (NASA), first detections\n{a_lt}–{b_lt} UTC+8 ({a_utc}–{b_utc} UTC)"
+title = "Sentinel-2 L2A before the fire ({d1}), on the ignition day ({d2}) and during the fire ({d3}): the Dornod (Mongolia)–Arxan border fire"
+footer = """Yellow solid line: Border (OSM), from LSIB / river centre lines; cyan dashed line: Border (Natural Earth), 10m, 0.5–2 km off the OSM line. White square: Arxan city. Black wedges (top left on {d1} and {d3}, bottom right on {d2}): outside the orbit swath, no data.
+In the SWIR images bright red/orange = flaming fire front, black-brown / dark red-brown = burn scar, blue-purple = smoke, cyan-white = cloud. Data: Copernicus Sentinel-2, Element84 Earth Search COG."""
+
+[s2-fronts-20261010]
+panel = "{label}  {sat} {time}\n{band}{sep}{res} m"
+se = "SE fire front"
+nw = "NW fire head"
+title = "Sentinel-2B at full 10 m resolution: active fire fronts, {md} {lt} UTC+8"
+footer = """Yellow solid line: Border (OSM), LSIB / river centre lines; cyan dashed line: Border (Natural Earth), 10m. Data: Copernicus Sentinel-2 L2A (Element84 Earth Search COG). Bright red / orange-yellow = flaming fire (B12
+saturated), blue-purple = smoke, black-brown = burn scar; circles = NOAA-21 VIIRS active fire (NASA) 25 minutes later."""
+
+[border-a]
+panel = "{label}\n{sat} {time}\n{band}{sep}{res} m"
+pre = "Zone A (near Arxan border crossing) before the fire"
+during = "Zone A (near Arxan border crossing) during the fire"
+fires = "VIIRS/MODIS active fire (NASA; 2 MODIS points from FIRMS)\n{a_md} {a_lt} – {b_md} {b_lt} UTC+8"
+title = "Border check A: 47.20–47.38°N, 119.40–119.65°E (persistent low-FRP detections, {a_md} {a_lt} – {b_md} {b_lt} UTC+8 ({a_md} {a_utc} – {b_md} {b_utc} UTC))"
+footer = """Yellow solid line: Border (OSM), LSIB / river centre lines; cyan dashed line: Border (Natural Earth), 10m. Data: Copernicus Sentinel-2 L2A (Element84 Earth Search COG). Circles = VIIRS/MODIS active fire (NASA) in
+the matching period (pixel centres, VIIRS 375 m / MODIS 1 km, location error about ±0.2–0.5 km). The last cloud-free Sentinel-2 image is {md} {lt} UTC+8 ({utc} UTC), earlier than these detections, so the panels
+only show the ground before the fire / before the fire front arrived, and existing firebreaks."""
+
+[ignition-20261008-v2]
+landsat_swir = "Landsat 9, {lt} UTC+8\nSWIR false colour (30 m)"
+landsat_lst = "Landsat 9, {lt} UTC+8\nB10 surface temperature (max {tmax} °C)"
+unit = "°C"
+s2_swir = "Sentinel-2C, {lt} UTC+8\nSWIR false colour (10 m)"
+fires = "First VIIRS active fire (NASA)\n{md} {a_lt}–{b_lt} UTC+8"
+legend_title = "Morning of {md}: pre-fire images\nand the day's first VIIRS active fire (NASA)"
+
+[s2-island-20261015]
+time = "{lt} ({utc} UTC)"
+pass = "{sat} {time}: {n} pts"
+pass_area = "{sat} {time}: in fire area {n} pts"
+hot = "Saturated SWIR pixels: {n} cells of 10 m"
+legend_title = "FIRMS fire detections (UTC+8); saturated pixel = B12>4000 and B11>3500\nData: Copernicus Sentinel-2 L2A (Element84 COG), NASA FIRMS"
+true = "True colour (10 m)"
+swir = "SWIR B12/B8A/B4 (20 m)"
+title = "Unburned island, south edge with residual fire: {md} {lt} UTC+8 ({utc} UTC)\nSentinel-2C"
+
+[border-south-zoom-20261013-v2]
+pre_true = "Pre-fire {md} true colour"
+pre_swir = "Pre-fire {md} SWIR"
+ign_swir = "Ignition day {md} SWIR"
+fire_true = "During fire {md} true colour"
+fire_swir = "During fire {md} SWIR"
+dnbr = "dNBR ({a_md}→{b_md}), grey = cloud"
+title = "Southern border zoom: Sentinel-2, yellow dashed line = Border (OSM)"
+# Left edge (°E) of the strip label; the English label is longer and starts further west.
+strip_x = 119.468
+
+[s2-south-20261013-v2]
+pre = "During fire {md} S2B true colour (10 m)"
+title = "Southern border section: {md} Sentinel-2B"
+# Offset (°) of the strip label from its default left edge.
+strip_dx = -0.020
+
+[s2-west-arxan-20261013-v2]
+pre = "Pre-fire {md} S2C true colour (10 m)"
+title = "Border section west of Arxan: {md} Sentinel-2B"
+burned = "Burned east\nof the line"
+
+[zone13]
+true = "{md} S2B true colour (10 m)"
+swir = "{md} S2B SWIR (20 m)"
+dnbr = "dNBR {a_md}→{b_md}\n(grey = cloud / cloud shadow)"

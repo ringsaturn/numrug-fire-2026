@@ -1,0 +1,62 @@
+# 日本語。時刻は特記なければ UTC+8。
+
+[fonts]
+# Latin and digits in Arial, so tick labels have the same metrics as the English version; kana and kanji from Hiragino
+family = ["Arial", "Hiragino Sans", "Noto Sans CJK JP", "DejaVu Sans"]
+
+["ignition-gk2a-20261008-ir"]
+title = "GK-2A 3.8 µm（2 km）：出火画素の昇温"
+panel = "{time}（UTC+8）"
+colorbar = "3.8 µm 輝度温度 K"
+ignition = "出火地点"
+border = "国境（OSM）"
+note = "数値：出火画素の背景との差"
+excess_weight = "bold"
+
+["ignition-gk2a-20261008-vis"]
+title = "GK-2A 0.64 µm（0.5 km）：出火地点付近に識別できる煙は見えない"
+panel = "{time}（UTC+8）"
+
+["ignition-viirs-20261008"]
+title = "出火後最初の VIIRS 通過 3 回（{date}）：水色の★は出火地点 {lat}°N {lon}°E、破線は中国・モンゴル国境（OSM）；\nデータ NASA LAADS VIIRS L1B"
+panel = "{sat} {local}（UTC+8、{utc} UTC）\n{product}"
+true_colour = "トゥルーカラー M5/M4/M3（750 m）"
+i1 = "I1 可視赤 0.64 µm（375 m）"
+false_colour = "フォールスカラー I3/I2/I1（375 m）"
+i4 = "I4 3.74 µm 輝度温度（火点チャンネル）"
+stats = "VIIRS 火点（NASA）：火点 {n}、{frp:,.0f} MW\nI4 最大 {i4max} K（背景 {i4bg} K）\n高温画素 {hot} 個、衛星天頂角 {vza}°"
+colorbar = "I4 輝度温度 K"
+arxan = "★アルシャン"
+# 9 pt runs past the panel edge
+arxan_size = 8
+
+["smoke-transport-s5p-20261011-1012-v2"]
+title = "TROPOMI 一酸化炭素と紫外エアロゾル指数、後方流跡線を重ねる（時刻は UTC+8）"
+panel = "{date} {product}（{times}）"
+time_sep = "、"
+panel_size = 9.5
+co = "CO 全量"
+ai = "紫外エアロゾル指数"
+co_unit = "CO 全量 mol/m²"
+ai_unit = "紫外エアロゾル指数（354/388）"
+legend = "後方流跡線\n（{arrival}）"
+arrive_hailar = "ハイラル着 {date} {H:02d}:{M:02d}"
+arrive_baicheng = "白城着 {date} {H:02d}:{M:02d}"
+ignition_dx = -0.15
+ignition_ha = "right"
+
+["smoke-transport-s5p-20261011-1012-v2".place]
+ignition = "出火地点"
+hailar = "ハイラル"
+arxan = "アルシャン"
+ulanhot = "ウランホト"
+baicheng = "白城"
+
+["pm25-hailar-baicheng-20261007-1014-v2"]
+title = "都市別の毎時大気質（中国全国都市大気質リアルタイム公開データ、quotsoft.net ミラー；UTC+8）"
+hailar = "フルンボイル（ハイラル）：出火地点の真北約 260 km；TROPOMI {t}（UTC+8）：下層の CO 高濃度域が火災域から北へ約 48.7°N まで伸びる"
+baicheng = "白城：出火地点の南東約 300 km；TROPOMI {date} {t1}、{t2}（UTC+8）：煙が火災域からウランホト・白城方向へ伸びる"
+peak = "ピーク時間帯\n（後方流跡線が火災域を通過）"
+ignition = "出火"
+xlabel = true
+mirror_as_published = false

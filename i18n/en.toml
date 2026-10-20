@@ -1,0 +1,17 @@
+# Shared English strings and formats. Figure strings are in groups/<group>/i18n/en.toml.
+# English is the fallback for every other language.
+
+[fonts]
+family = ["DejaVu Sans"]
+
+[fmt]
+md = "{m:02d}-{d:02d}"
+hm = "{H:02d}:{M:02d}"
+mdhm = "{m:02d}-{d:02d} {H:02d}:{M:02d}"
+ymd = "{Y}-{m:02d}-{d:02d}"
+thousands = ","
+decimal = "."
+
+[common]
+utc8 = "UTC+8"
+local_time_axis = "Local time (UTC+8)"

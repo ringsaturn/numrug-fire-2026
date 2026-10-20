@@ -1,0 +1,84 @@
+# Strings of the firms group. Placeholders: {day} = lang.md, {time} = lang.mdhm, {n} and {mw} = lang.num.
+# Clock and tick formats that are not covered by i18n/<lang>.toml [fmt] are strftime patterns ({t:...} or *_fmt).
+
+[places]
+arxan = "Arxan"
+arxan_city = "Arxan (city)"
+yirshi = "Yirshi"
+nomrog = "Nömrög"
+crossing = "Arxan border crossing (approx.)"
+lon = "Longitude (°E)"
+lat = "Latitude (°N)"
+day = "{pass} (day)"
+night = "{pass} (night)"
+day_1km = "{pass} (day, 1 km)"
+entry = "{pass}: {n} detections, {mw} MW"
+entry_one = "{pass}: {n} detection, {mw} MW"
+
+[arxan-fire-spread]
+title = "Grassland fire west of Arxan"
+title_size = 23
+subtitle = "China–Mongolia border · VIIRS 375 m active fire (NASA),\nhourly, 10-08 to 10-16"
+subtitle_size = 13
+clock = "{t:%m-%d %H:%M}"
+status = "UTC+8 ({utc} UTC)   day {day} since ignition"
+status_before = "UTC+8 ({utc} UTC)   before ignition"
+so_far = "Detections so far  {n}"
+latest = "Latest overpass  {time}  {sat}{night}"
+night = " (night)"
+last_mw = "{n} detections, total FRP {frp} MW"
+last_mw_one = "{n} detection, total FRP {frp} MW"
+last_gw = "{n} detections, total FRP {frp} GW"
+mongolia = "Mongolia"
+china = "China"
+arxan = "Arxan"
+first = "First fire detection\n{time} UTC+8"
+south = "New fire to the south, 10-15\n(MODIS, Chinese side)"
+base = "Base: 10-16 VIIRS NOAA-21 false colour (M11-I2-I1);\ndark red = burn scar"
+recent = "Detected within 3 h"
+mid = "Within 12 h"
+old = "Earlier (burned)"
+none_here = " (none in this frame)"
+modis = "MODIS 1 km (NASA FIRMS), new fire to the south, 10-15"
+border = "Border (OSM)"
+frp_axis = "Total FRP per overpass (GW)"
+night_note = "Shading: night (18:00–06:00 UTC+8)"
+footer = """Data: NASA LANCE / LP DAAC VIIRS 375 m active fire (VNP14IMG, VJ114IMG,
+VJ214IMG), FIRMS MODIS C6.1; base Copernicus DEM GLO-90 hillshade, NASA GIBS;
+border (OSM). Detections are pixel centres, not exact fire-front positions."""
+footer_size = 9.5
+footer_linespacing = 1.5
+
+[firms-progression-20261013]
+title = "VIIRS active fire (NASA) by day; dashed: border (OSM)"
+legend = "{day} (UTC+8): {n} detections"
+mongolia = "Mongolia, Dornod"
+hinggan = "China,\nInner Mongolia,\nHinggan League"
+ujimqin = "China, Inner Mongolia,\nEast Ujimqin Banner, Xilin Gol"
+
+[firms-timeseries-20261013]
+title = "Fire area (46.3–47.9°N, 118.3–120.6°E): radiative power, pixel count and east/west edges per satellite overpass"
+legend_title = "VIIRS/MODIS active fire (NASA); MODIS from 10-11: FIRMS NRT"
+frp = "Total FRP (GW)"
+pixels = "Fire pixels"
+edges = "Fire longitude range (°E)\n▲ east edge  ▽ west edge"
+border_east = "Easternmost point of the border ≈ 119.93°E (west of Arxan)"
+tick_fmt = "%m-%d %H:%M"
+
+[firms-east-20261012]
+title = "10-12 daytime VIIRS active fire (NASA), border west of Arxan\n(marker size ∝ FRP; dashed: border (OSM))"
+title_size = 10.5
+before = "All VIIRS detections before {time} UTC+8"
+entry = "{sat} {day}: {n} detections"
+
+[firms-20261013-1014-0911]
+title = "Fire detections, 10-13 daytime to 10-14 morning; grey: 10-12 NOAA-21 burn scar, dashed: border (OSM)"
+title_size = 9
+legend_title = "VIIRS 375 m / MODIS 1 km active fire (NASA; MODIS: FIRMS NRT)\nmarker size ∝ FRP; times UTC+8"
+lon = "Longitude °E"
+lat = "Latitude °N"
+
+[firms-20261014-1015]
+title = "Fire detections, 10-14 daytime to 10-15 afternoon (UTC+8)"
+legend_title = "VIIRS 375 m / MODIS 1 km active fire (NASA; MODIS: FIRMS NRT), marker size ∝ FRP;\ngrey: 10-14 NOAA-20 burn scar, dashed: border (OSM);\n* time is the start of the satellite data file"
+file_start = "{pass}*"

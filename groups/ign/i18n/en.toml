@@ -1,0 +1,60 @@
+# English strings of the ign figures. Times are UTC+8 unless a string says UTC.
+
+[fonts]
+family = ["Arial", "DejaVu Sans"]
+
+["ignition-gk2a-20261008-ir"]
+title = "GK-2A 3.8 µm (2 km): warming of the ignition pixel"
+panel = "{time} UTC+8"
+colorbar = "3.8 µm brightness temperature K"
+ignition = "Ignition point"
+border = "Border (OSM)"
+note = "Numbers: ignition pixel\nabove background"
+excess_weight = "bold"
+
+["ignition-gk2a-20261008-vis"]
+title = "GK-2A 0.64 µm (0.5 km): no discernible smoke plume near the ignition point"
+panel = "{time} UTC+8"
+
+["ignition-viirs-20261008"]
+title = "First three VIIRS overpasses after ignition ({date}): cyan ★ is the ignition point {lat}°N {lon}°E, dashed line is the\nChina–Mongolia border (OSM); data NASA LAADS VIIRS L1B"
+panel = "{sat} {local} UTC+8 ({utc} UTC)\n{product}"
+true_colour = "True colour M5/M4/M3 (750 m)"
+i1 = "I1 visible red 0.64 µm (375 m)"
+false_colour = "False colour I3/I2/I1 (375 m)"
+i4 = "I4 3.74 µm brightness temperature (fire channel)"
+stats = "VIIRS active fire (NASA): {n} detections, {frp:,.0f} MW\nI4 max {i4max} K (background {i4bg} K)\n{hot} hot pixels, view zenith angle {vza}°"
+colorbar = "I4 brightness temperature K"
+arxan = "★Arxan"
+arxan_size = 9
+
+["smoke-transport-s5p-20261011-1012-v2"]
+title = "TROPOMI carbon monoxide and UV aerosol index, with back trajectories (times UTC+8)"
+panel = "{date} {product} ({times})"
+time_sep = ", "
+panel_size = 9.5
+co = "CO total column"
+ai = "UV aerosol index"
+co_unit = "CO total column mol/m²"
+ai_unit = "UV aerosol index (354/388)"
+legend = "Back trajectories\n({arrival})"
+arrive_hailar = "arriving Hailar {date} {H:02d}:{M:02d}"
+arrive_baicheng = "arriving Baicheng {date} {H:02d}:{M:02d}"
+ignition_dx = -0.15
+ignition_ha = "right"
+
+["smoke-transport-s5p-20261011-1012-v2".place]
+ignition = "Ignition point"
+hailar = "Hailar"
+arxan = "Arxan"
+ulanhot = "Ulanhot"
+baicheng = "Baicheng"
+
+["pm25-hailar-baicheng-20261007-1014-v2"]
+title = "Hourly city air quality (China national real-time city air-quality release, quotsoft.net mirror; UTC+8)"
+hailar = "Hulunbuir (Hailar): about 260 km due north of the ignition point; TROPOMI {t} UTC+8: low-level CO tongue reaches north from the fire area to about 48.7°N"
+baicheng = "Baicheng: about 300 km southeast of the ignition point; TROPOMI {date} {t1}, {t2} UTC+8: smoke plume stretches from the fire area towards Ulanhot–Baicheng"
+peak = "Peak period (back trajectories\npass over the fire area)"
+ignition = "Ignition"
+xlabel = true
+mirror_as_published = false

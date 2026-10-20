@@ -1,0 +1,86 @@
+[fonts]
+# Regular weight only: bold text is drawn with W3, as in the published Japanese figures.
+files = ["/System/Library/Fonts/ヒラギノ角ゴシック W3.ttc"]
+
+[places]
+arxan = "アルシャン"
+arxan_city = "アルシャン市"
+yirshi = "イルシ"
+nomrog = "ヌムルグ"
+crossing = "アルシャン口岸（概略位置）"
+lon = "経度（°E）"
+lat = "緯度（°N）"
+day = "{pass}（昼）"
+night = "{pass}（夜）"
+day_1km = "{pass}（昼、1 km）"
+entry = "{pass}：火点 {n}、{mw} MW"
+entry_one = "{pass}：火点 {n}、{mw} MW"
+
+[arxan-fire-spread]
+title = "アルシャン西方の草原火災"
+title_size = 23
+subtitle = "中国・モンゴル国境　VIIRS 375 m 火点（NASA）の\n1時間ごとの累積、10/08〜10/16"
+subtitle_size = 13
+clock = "{t:%m/%d %H:%M}"
+status = "UTC+8（{utc} UTC）　出火後 {day} 日目"
+status_before = "UTC+8（{utc} UTC）　出火前"
+so_far = "累積火点数  {n}"
+latest = "直近の通過  {time}  {sat}{night}"
+night = "（夜間）"
+last_mw = "火点 {n}、FRP 合計 {frp} MW"
+last_mw_one = "火点 {n}、FRP 合計 {frp} MW"
+last_gw = "火点 {n}、FRP 合計 {frp} GW"
+mongolia = "モンゴル"
+china = "中国"
+arxan = "アルシャン"
+first = "最初の火点\n{time}（UTC+8）"
+south = "10/15 南側の新たな火災\n（MODIS、中国側）"
+base = "背景：10/16 VIIRS NOAA-21 フォールスカラー\n（M11-I2-I1）、暗赤色が焼失域"
+recent = "3 時間以内に検出"
+mid = "12 時間以内"
+old = "それ以前（焼失済み）"
+none_here = "（このコマにはなし）"
+modis = "MODIS 1 km（NASA FIRMS）、10/15 南側の新たな火災"
+border = "国境（OSM）"
+frp_axis = "通過ごとの FRP 合計（GW）"
+night_note = "網掛けは夜間（18:00〜06:00、UTC+8）"
+footer = """データ：NASA LANCE / LP DAAC VIIRS 375 m 火点
+（VNP14IMG、VJ114IMG、VJ214IMG）、FIRMS MODIS C6.1。
+背景は Copernicus DEM GLO-90 陰影図、NASA GIBS。国境（OSM）。
+火点は画素の中心で、延焼前線の正確な位置ではない。"""
+footer_size = 9
+footer_linespacing = 1.45
+
+[firms-progression-20261013]
+title = "VIIRS 火点（NASA）の日別推移、破線：国境（OSM）"
+legend = "{day}（UTC+8）：火点 {n}"
+mongolia = "モンゴル ドルノド県"
+hinggan = "中国 内モンゴル\n興安盟"
+ujimqin = "中国 内モンゴル\nシリンゴル盟東ウジムチン旗"
+
+[firms-timeseries-20261013]
+title = "火災域（46.3〜47.9°N、118.3〜120.6°E）：衛星通過ごとの放射強度、画素数、東西端"
+legend_title = "VIIRS/MODIS 火点（NASA）、10/11 以降の MODIS は FIRMS NRT"
+frp = "総 FRP（GW）"
+pixels = "火点画素数"
+edges = "火点の経度範囲（°E）\n▲東端 ▽西端"
+border_east = "国境の最東端 約 119.93°E（アルシャンの西）"
+tick_fmt = "%m/%d %H:%M"
+
+[firms-east-20261012]
+title = "10/12 日中の VIIRS 火点（NASA）：アルシャン西方の国境区間\n（記号の大きさ ∝ FRP、破線：国境（OSM））"
+title_size = 10.5
+before = "{time}（UTC+8）以前の VIIRS 全火点"
+entry = "{sat} {day}：火点 {n}"
+
+[firms-20261013-1014-0911]
+title = "10/13 日中〜10/14 朝の火点、灰色：10/12 NOAA-21 焼失域、破線：国境（OSM）"
+title_size = 9
+legend_title = "VIIRS 375 m / MODIS 1 km 火点（NASA、MODIS は FIRMS NRT）\n記号の大きさ ∝ FRP、時刻は UTC+8"
+lon = "経度 °E"
+lat = "緯度 °N"
+
+[firms-20261014-1015]
+title = "10/14 日中〜10/15 午後の火点（UTC+8）"
+legend_title = "VIIRS 375 m / MODIS 1 km 火点（NASA、MODIS は FIRMS NRT）、記号の大きさ ∝ FRP、\n灰色：10/14 NOAA-20 焼失域、破線：国境（OSM）、\n* 時刻は衛星データファイルの開始時刻"
+file_start = "{pass}*"

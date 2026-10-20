@@ -1,0 +1,101 @@
+# Weather and smoke figures: Japanese. One table per figure.
+
+[smoke-pm25-maps]
+title = "地上 PM2.5（µg/m³）：塗りは GEFS-Aerosols モデル、丸は観測局の都市平均（同じ色スケール）、赤い星は火災地点、白抜きの丸はその時刻に観測なし"
+title_size = 9
+panel = "{md} {h:02d}Z 初期値 +{lead} h・{tag}"
+without_fire = "今回の火災なし"
+with_fire = "今回の火災あり"
+row = "{t}（UTC+8）"
+city_value = "{city} {v:.0f}"
+songyuan_dx = 0
+
+[smoke-pm25-maps.city]
+Hailar = "ハイラル"
+Baicheng = "白城"
+Qiqihar = "チチハル"
+Tongliao = "通遼"
+Songyuan = "松原"
+Xilinhot = "シリンホト"
+Ulanhot = "ウランホト"
+
+[smoke-pm25-series]
+title = "観測（国の観測局の都市平均、現地時間 UTC+8）と GEFS-Aerosols 0.25° モデル（都市位置へ双線形内挿、3 時間ごと）"
+panel = "{city}：地上 PM2.5（µg/m³）"
+no_fire = "モデル 火災なし（{md} {h:02d}Z）"
+with_fire = "モデル＋火災（{md} {h:02d}Z）"
+observed = "観測 PM2.5"
+co = "観測 CO（mg/m³、青線）"
+tick = "{md}\n{H:02d}:00"
+legend_size = 7
+
+[smoke-pm25-series.city]
+Hailar = "ハイラル"
+Baicheng = "白城"
+
+[fire-weather-20261013]
+title = "火災域 47.0°N 119.4°E の毎時気象（Open-Meteo 過去予報／ベストマッチ合成、0.1°〜0.25° 格子）"
+t2m = "2 m 気温（°C）"
+td = "露点（°C）"
+precip = "降水量 mm/h"
+rh = "相対湿度 %"
+wind = "10 m 風速"
+gust = "最大瞬間風速"
+tick = "{md} {H:02d}:00"
+xlabel = "現地時間（UTC+8）（紫線：報告時刻、以降は予報）"
+
+[models-daily-20261013-2000]
+title = "火災域 47.0°N 119.5°E の 4 モデル日別予報（日界は現地時間 UTC+8、Open-Meteo）"
+this_report = "{model} 本報"
+legend_title = "実線：本報／点線：第 4 報"
+rh = "日最小相対湿度 %"
+gust = "日最大瞬間風速 m/s"
+dir = "14:00 の風向 °\n（● 本報 × 第 4 報）"
+precip = "日降水量 mm\n（本報）"
+tick = "{md}"
+
+[models-daily-20261013-2000.compass]
+n = "北"
+e = "東"
+s = "南"
+w = "西"
+
+# Shared by upper, surface and meteogram (synoptic.py).
+[synoptic]
+local = "{t}（UTC+8）"
+valid = "対象時刻 {t}"
+jet = "250 hPa 風速 m/s"
+rain = "降水強度 mm/h"
+
+[upper-20261013-2000]
+title = "500 hPa高度（等値線 gpm、赤 = 5880：該当なし）と 250 hPa ジェット（陰影・矢羽）"
+
+[surface-20261013-2000]
+title = "海面気圧（等値線 hPa）、10 m 風（矢羽 kt）、降水強度（陰影）；\n赤破線 = 10 m 風 ≥ 17.2 m/s（地図の端の小さな領域のみ：GFS 10/13、ECMWF 10/17）"
+
+[meteogram-20261013-2000]
+title = "{name}（{lat:.2f}°N {lon:.2f}°E 最近接格子）モデル時系列、時刻 UTC+8"
+point_name = "火災域"
+mslp = "海面気圧 hPa"
+wind = "風速 m/s"
+rate = "降水強度 mm/h"
+accum = "積算降水量 mm\n（各モデルの初期時刻から）"
+w10 = " 10 m 風"
+gust = " 最大瞬間風速"
+gale = "17.2 m/s（暴風）"
+strong = "10.8 m/s（強風）"
+tick = "{md}\n{hm}"
+
+[skewt-20261013-2000-v2]
+title = "高層観測 {date} {hm}（UTC+8、{utc} UTC）"
+panel = "{name} {wmo}（{lat:.1f}°N {lon:.1f}°E）"
+t = "気温 T"
+td = "露点 Td"
+xlabel = "気温 °C（斜交座標）"
+barbs = "右側の矢羽：風向・風速（kt）"
+values = "{name}：PW {pw}、凍結高度 {fl}\n    850〜500 hPa 気温減率 {lr}、\n    対流圏界面 {tp}"
+
+[skewt-20261013-2000-v2.station]
+50527 = "ハイラル"
+54102 = "シリンホト"
+54135 = "通遼"

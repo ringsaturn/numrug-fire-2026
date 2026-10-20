@@ -1,0 +1,84 @@
+# Himawari-9 AHI figures. Prepare steps run in order; see README.md for sources and sizes.
+
+[[prepare]]
+name = "ahi-fetch-ir"
+run = ["scripts/fetch_ahi.sh", "granules/ahi_ir.txt"]
+about = "Himawari-9 B07/B14 2 km segment 2, every 10 min 10-07 18:00Z to 10-13 14:00Z (1,654 files, 3.4 GB, NOAA bucket)"
+
+[[prepare]]
+name = "ahi-fetch-vis"
+run = ["scripts/fetch_ahi.sh", "granules/ahi_vis.txt"]
+about = "Himawari-9 B01-B04 segments 1-2 at four times for the visible maps and the cover (32 files)"
+
+[[prepare]]
+name = "ne-fetch"
+run = ["scripts/fetch_ne.sh"]
+about = "Natural Earth 10m land boundary lines v5.1.0 (1 MB)"
+
+[[prepare]]
+name = "viirs-fetch"
+run = ["scripts/fetch_viirs.sh", "granules/viirs_l2.txt"]
+about = "VIIRS 375 m active-fire L2 granules, 54 files, 100 MB (LP DAAC, Earthdata login in ~/.netrc)"
+
+[[prepare]]
+name = "ahi-extract"
+run = ["scripts/extract.py"]
+about = "crop every B07/B14 frame to the fire area -> data/ahi/ahi_b07_b14_crop.npz"
+
+[[prepare]]
+name = "ahi-detect"
+run = ["scripts/detect.py"]
+about = "per-frame hotspot detection -> data/ahi/ahi_hotmask.npz, ahi_hotspots_10min.csv"
+
+[[prepare]]
+name = "viirs-box"
+run = ["scripts/viirs_box.py"]
+about = "VIIRS fire pixels in the detection box before 10-12 00:00Z -> data/ahi/viirs_box.csv"
+
+[[figure]]
+name = "cover"
+run = ["scripts/cover.py"]
+
+[[figure]]
+name = "ahi-hotspots-20261013-2200"
+run = ["scripts/timeseries.py"]
+
+[[figure]]
+name = "ahi-b07-1008-1012-v3"
+run = ["scripts/b07_panels.py", "key"]
+
+[[figure]]
+name = "ahi-front-progression"
+run = ["scripts/progression.py"]
+
+[[figure]]
+name = "ahi-b07-1012-evening-v2"
+run = ["scripts/b07_panels.py", "evening"]
+
+[[figure]]
+name = "ahi-latest-hotspots"
+run = ["scripts/latest.py", "r2", "ahi-latest-hotspots"]
+
+[[figure]]
+name = "ahi-latest-hotspots-20261013"
+run = ["scripts/latest.py", "r3", "ahi-latest-hotspots-20261013"]
+
+[[figure]]
+name = "ahi-latest-hotspots-20261013-2200"
+run = ["scripts/latest.py", "r5", "ahi-latest-hotspots-20261013-2200"]
+
+[[figure]]
+name = "ahi-vis-20261011-1300"
+run = ["scripts/vis.py", "r1", "20261011_0500", "ahi-vis-20261011-1300"]
+
+[[figure]]
+name = "ahi-vis-20261012-1400"
+run = ["scripts/vis.py", "r2", "20261012_0600", "ahi-vis-20261012-1400"]
+
+[[figure]]
+name = "ahi-vis-20261013-0900"
+run = ["scripts/vis.py", "r3", "20261013_0100", "ahi-vis-20261013-0900"]
+
+[[figure]]
+name = "ahi-vis-20261013-1400"
+run = ["scripts/vis.py", "r5", "20261013_0600", "ahi-vis-20261013-1400"]
