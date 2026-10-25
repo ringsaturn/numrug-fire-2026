@@ -194,8 +194,6 @@ PL = [
 for key, mk, off, ha, va in PL:
     lo, la = osm.PLACES[key]
     ax.plot(lo, la, mk, ms=6 if mk != "D" else 4.5, mfc="white", mec="black", mew=0.9, zorder=10)
-    if key == "khar_khonog" and not osm.KHAR_NAME:
-        continue
     ax.annotate(osm.T(key.split("_")[0] if key.startswith("dwelling") else key), (lo, la), xytext=off, textcoords="offset points", ha=ha, va=va, color="white",
                 fontsize=9.5, family=osm.font(), path_effects=HALO, zorder=11)
 ax.plot(*ARXAN, "s", ms=6, mfc="white", mec="black", zorder=10)

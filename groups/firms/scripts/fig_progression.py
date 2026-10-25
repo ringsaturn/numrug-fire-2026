@@ -65,8 +65,6 @@ for la, lo, key, mk, left in PLACES:
 for key, mk, off, ha in OSM_PLACES:
     lo, la = osm.PLACES[key]
     ax.plot(lo, la, mk, ms=6, zorder=6)
-    if key == "khar_khonog" and not osm.KHAR_NAME:
-        continue
     ax.annotate(
         osm.T(key), (lo, la), xytext=off, textcoords="offset points", ha=ha, fontsize=9.5, zorder=6,
         bbox=dict(fc="white", ec="none", alpha=0.75, pad=0.8),

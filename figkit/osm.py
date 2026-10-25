@@ -18,7 +18,6 @@ where DIR holds roads_mn.json (highway ways in Khalkhgol sum), water.json (water
 from __future__ import annotations
 
 import json
-import os
 import sys
 from functools import lru_cache
 from pathlib import Path
@@ -44,9 +43,6 @@ PLACES = {
     "dwelling_w": (118.5195, 47.1796),  # node 14316345177 place=isolated_dwelling
     "dwelling_nw": (118.5005, 47.2415),  # node 14316344867 place=isolated_dwelling
 }
-# Whether Khar-Khonog is named on the figures (NUMRUG_KHAR_NAME=1); by default only its point is drawn, until the
-# write-up decides to name it.
-KHAR_NAME = os.environ.get("NUMRUG_KHAR_NAME") == "1"
 # man_made=tower nodes on the Chinese side within 5 km of the reserve (tower:type in the comment).
 CN_TOWERS = [
     (119.9234, 46.9261),  # 12442355244 defensive
