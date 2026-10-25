@@ -64,7 +64,8 @@ for key, mk, off, ha in OSM_PLACES:
     lo, la = osm.PLACES[key]
     ax.plot(lo, la, mk, ms=6, zorder=6)
     ax.annotate(
-        osm.T(key), (lo, la), xytext=off, textcoords="offset points", ha=ha, fontsize=9.5, zorder=6, path_effects=HALO,
+        osm.T(key), (lo, la), xytext=off, textcoords="offset points", ha=ha, fontsize=9.5, zorder=6,
+        bbox=dict(fc="white", ec="none", alpha=0.75, pad=0.8),
         family=osm.font(),
     )
 ax.plot(*osm.IGNITION, marker="*", ms=14, mfc="none", mec="cyan", mew=1.6, ls="", zorder=7, label=lang.T("osm.ignition"))

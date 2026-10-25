@@ -4,9 +4,9 @@ The 10-10 Sentinel-2B window behind the published "after" image is no longer on 
 the published JPGs themselves (data/s2/slider/, the files served at blog-assets …/slider/, md5 f35efbb7… and
 8aa3d05b…). Their pixel grid is the 10 m grid of the ignition box 119.28-119.52°E, 46.78-46.97°N, resized to
 1732 x 2000. One pair serves every language, so the overlay carries symbols, letters and a distance only:
-OSM roads (white), the end of the nearest track (white square), a dashed cyan line from it to the ignition point
-with its length, a magenta bracket beside each Sentinel-2 linear feature A/B/C (the feature itself left
-uncovered) and the ignition point (cyan star).
+OSM roads (white), the end of the nearest track (white square), a dashed cyan line from it to the centre of the
+published white ignition circle (46.883°N, 119.395°E, no extra mark) with its length, a magenta bracket beside each Sentinel-2 linear feature A/B/C (the feature itself left
+uncovered).
 """
 
 import math
@@ -62,15 +62,6 @@ def halo_text(d, xy, s, font, fill, anchor, r=3):
     d.text(xy, s, font=font, fill=fill, anchor=anchor)
 
 
-def star(cx, cy, R, r):
-    pts = []
-    for k in range(10):
-        a = math.radians(-90 + 36 * k)
-        rr = R if k % 2 == 0 else r
-        pts.append((cx + rr * math.cos(a), cy + rr * math.sin(a)))
-    return pts
-
-
 # Side of each feature its bracket and letter go on, as a unit vector in image pixels (y down): A runs W-E and
 # gets its bracket above it, B and C run N-S and get theirs on the west.
 SIDE = {"s2-line-a": (0, -1), "s2-line-b": (-1, 0), "s2-line-c": (-1, 0)}
@@ -112,9 +103,6 @@ def overlay(im):
         mx, my = (x0 + x1) / 2 + nx * (g + 4 * lw), (y0 + y1) / 2 + ny * (g + 4 * lw)
         anchor = ("r" if nx < -0.5 else "l" if nx > 0.5 else "m") + ("b" if ny < -0.5 else "t" if ny > 0.5 else "m")
         halo_text(d, (mx, my), k[-1].upper(), f, (255, 61, 245), anchor)
-    st = star(*b, 11 * lw, 4.4 * lw)
-    d.polygon(st, outline=(0, 0, 0), width=lw + 4)
-    d.polygon(st, outline=(0, 255, 255), width=lw + 1)
     return km
 
 

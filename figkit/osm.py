@@ -27,7 +27,7 @@ from . import paths
 FILE = paths.ROOT / "snapshot" / "osm-20261025.json"
 
 # Points used by the figures, lon/lat (OSM element in the comment).
-IGNITION = (119.40, 46.88)  # ignition point used in the text (not an OSM element)
+IGNITION = (119.395, 46.883)  # ignition point of the text and the slider circle (GK-2A first pixel; not an OSM element)
 PLACES = {
     "sumber": (119.4644209, 47.3250903),  # way 1344889485 Сүмбэр боомт
     "arxan_port": (119.5267492, 47.3257193),  # way 1265623442 阿尔山口岸

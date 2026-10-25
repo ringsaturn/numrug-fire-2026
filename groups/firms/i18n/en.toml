@@ -108,5 +108,5 @@ tick = "banner/city boundary meeting the border"
 rivers = "Khalkh, Delger and border river stretches (OSM)"
 roads = "other roads, Mongolian side (OSM)"
 footer = """Routes are shortest paths on the OSM road network (highway=*, footpaths excluded), not the route anyone actually took;
-ignition point 46.88°N, 119.40°E. Base map: Copernicus DEM GLO-90 hillshade. Roads, places, border, banner boundaries,
+ignition point 46.883°N, 119.395°E. Base map: Copernicus DEM GLO-90 hillshade. Roads, places, border, banner boundaries,
 reserve boundary and rivers: OSM 2026-10-25 snapshot, © OpenStreetMap contributors (ODbL)."""
