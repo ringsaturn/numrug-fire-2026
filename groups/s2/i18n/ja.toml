@@ -38,6 +38,9 @@ footer = """黄色実線：国境（OSM）、LSIB／河川中心線；水色破�
 丸は対応期間の VIIRS/MODIS 火点（NASA）（画素中心、VIIRS 375 m／MODIS 1 km、位置誤差 約 ±0.2〜0.5 km）。
 雲のない最後の Sentinel-2 画像は {md} {lt}（UTC+8、{utc} UTC）で、これらの火点より前のため、出火前／延焼前線の到達前の地表と既存の防火帯しか写っていない。"""
 
+roads = "モンゴル側の道路（OSM）"
+osm = "白の細線：モンゴル側の道路、白の三角：口岸。いずれも OSM 2026-10-25 スナップショット、© OpenStreetMap contributors (ODbL)。"
+
 [ignition-20261008-v2]
 landsat_swir = "Landsat 9、{lt}（UTC+8）\n短波赤外フォールスカラー（30 m）"
 landsat_lst = "Landsat 9、{lt}（UTC+8）\nB10 地表面温度（最高 {tmax} °C）"

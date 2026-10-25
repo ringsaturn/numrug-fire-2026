@@ -15,7 +15,9 @@ import pandas as pd
 from matplotlib.transforms import Bbox
 
 from common import IGN_LAT, IGN_LON, border, data
-from figkit import lang
+import matplotlib.patheffects as pe
+
+from figkit import lang, osm
 
 lang.init(__file__)
 K = "ignition-viirs-20261008."
@@ -76,6 +78,14 @@ for i, (tag, sat, t, src, gran) in enumerate(P):
             x, y = zip(*p)
             a.plot(x, y, "--", c="w" if c == 2 else "yellow", lw=1)
         a.plot(*IGN, marker="*", ms=10 if c == 0 else 13, mfc="none", mec="cyan", mew=1.5)
+        if c == 1:
+            # OSM 2026-10-25: end of the track nearest the ignition point, and Нөмрөг баг
+            for key, mk, off, ha in (("track_end", "s", (6, -1), "left"), ("bag", "o", (6, 2), "left")):
+                lo, la = osm.PLACES[key]
+                a.plot(lo, la, mk, ms=5, mfc="white", mec="black", mew=0.8, zorder=6)
+                a.annotate(osm.T(key), (lo, la), xytext=off, textcoords="offset points", ha=ha, va="center",
+                           color="white", fontsize=7.5, family=osm.font(),
+                           path_effects=[pe.withStroke(linewidth=2, foreground="black")])
         if c > 0:
             a.set_xlim(ZB[0], ZB[1])
             a.set_ylim(ZB[2], ZB[3])

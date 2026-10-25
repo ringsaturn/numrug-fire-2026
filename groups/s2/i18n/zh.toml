@@ -38,6 +38,9 @@ footer = """黄色实线：中蒙国界（OpenStreetMap，LSIB/河流中线）�
 圆圈为对应时段 VIIRS/MODIS 火点（像元中心，VIIRS 375 m / MODIS 1 km，定位误差约 ±0.2–0.5 km）；哨兵-2 最晚无云影像为 {md} {utc}Z，早于这些火点出现时间，
 故只能显示火前/火锋到达前的地表状况与已有防火隔离带。"""
 
+roads = "蒙方道路（OSM）"
+osm = "白色细线：蒙方道路；白色三角：口岸，均为 OSM 2026-10-25 快照，© OpenStreetMap contributors (ODbL)。"
+
 [ignition-20261008-v2]
 landsat_swir = "Landsat 9 北京 {lt}\nSWIR 假彩色（30 m）"
 landsat_lst = "Landsat 9 北京 {lt}\nB10 地表温度（最高 {tmax} ℃）"

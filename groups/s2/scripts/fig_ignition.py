@@ -7,6 +7,8 @@ import datetime as dt
 import numpy as np
 from matplotlib.ticker import MaxNLocator
 
+from figkit import osm
+
 from common import BOX, D, SAT, aspect, borders_both, ext_of, firms_dots, fmt, gamma, lang, load, plt, swir, tk, utc
 
 lang.init(__file__)
@@ -51,13 +53,18 @@ for k, ax in enumerate((a0, a1, a2)):
     ax.set_xticks([119.30, 119.40, 119.50])
     ax.yaxis.set_major_locator(MaxNLocator(4))
     firms_dots(ax, dt.datetime(2026, 10, 8, 4, 0), dt.datetime(2026, 10, 8, 5, 59), el, label=label, s=24)
+    osm.ignition_marks(ax, fs=7, lw=0.8, star=11, legend=k == 0)
+    fmt(ax, el, 9)
     if k == 1:
         ax.set_yticklabels([])
 h, l = a0.get_legend_handles_labels()
+h = osm.legend_handles(h)
 a3.axis("off")
 a3.legend(
-    h, l, loc="center", fontsize=9, frameon=False, title=lang.T(K + "legend_title", **tk(t_s2)), title_fontsize=10
+    h, l, loc="center", fontsize=8, frameon=False, title=lang.T(K + "legend_title", **tk(t_s2)), title_fontsize=10
 )
+a3.text(0.5, 0.0, lang.T("osm.credit"), transform=a3.transAxes, ha="center", va="bottom", fontsize=6.5, color="0.35",
+        wrap=True)
 out = lang.out("ignition-20261008-v2")
 fig.savefig(out, dpi=200)
 print(out)

@@ -40,6 +40,9 @@ footer = """Yellow solid line: Border (OSM), LSIB / river centre lines; cyan das
 the matching period (pixel centres, VIIRS 375 m / MODIS 1 km, location error about ±0.2–0.5 km). The last cloud-free Sentinel-2 image is {md} {lt} UTC+8 ({utc} UTC), earlier than these detections, so the panels
 only show the ground before the fire / before the fire front arrived, and existing firebreaks."""
 
+roads = "Roads, Mongolian side (OSM)"
+osm = "Thin white lines: roads on the Mongolian side; white triangles: border ports; both from the OSM 2026-10-25 snapshot, © OpenStreetMap contributors (ODbL)."
+
 [ignition-20261008-v2]
 landsat_swir = "Landsat 9, {lt} UTC+8\nSWIR false colour (30 m)"
 landsat_lst = "Landsat 9, {lt} UTC+8\nB10 surface temperature (max {tmax} °C)"

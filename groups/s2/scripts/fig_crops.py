@@ -8,6 +8,8 @@ fig_crops.py border-a  border-a: zone A near the Arxan border crossing, 10-05 (2
 import datetime as dt
 import sys
 
+import matplotlib.patheffects as pe
+
 from common import (
     ARXAN,
     SAT,
@@ -26,6 +28,8 @@ from common import (
     swir,
     utc,
 )
+
+from figkit import osm
 
 lang.init(__file__)
 
@@ -86,7 +90,22 @@ elif which == "border-a":
     t0, t1 = dt.datetime(2026, 10, 10, 11), dt.datetime(2026, 10, 11, 4, 59)
     rng = {**tk(t0, "a_"), **tk(t1, "b_")}
     w = (t0, t1, lang.T(K + ".fires", **rng))
-    fig, _ = crop_panels(
+    fig, axs = crop_panels(
         [("SPA", "2026-10-05", 20, lang.T(K + ".pre"), w), ("SPA", "2026-10-10", 10, lang.T(K + ".during"), w)], K
     )
-    finish(fig, lang.T(K + ".title", **rng), lang.T(K + ".footer", **tk(utc("2026-10-10", "03:05"))), K)
+    halo = [pe.withStroke(linewidth=2.2, foreground="black")]
+    for ax in axs.flat:
+        e = (*ax.get_xlim(), *ax.get_ylim())
+        kinds = ("unclassified", "track", "tertiary", "residential", "service")
+        osm.roads(ax, kinds, box=e, color="white", lw=0.9, alpha=0.9, zorder=3, label=lang.T(K + ".roads"))
+        for key, off, ha in (("sumber", (0, -9), "center"), ("arxan_port", (0, -9), "center")):
+            lo, la = osm.PLACES[key]
+            ax.plot(lo, la, "^", ms=8, mfc="white", mec="black", mew=1.2, zorder=6)
+            ax.annotate(osm.T(key, wrap=True), (lo, la), xytext=off, textcoords="offset points", ha=ha, va="top",
+                        color="white", fontsize=9.5, zorder=6, path_effects=halo, family=osm.font())
+        ax.set_xlim(e[0], e[1])
+        ax.set_ylim(e[2], e[3])
+    for ax in axs[:, 0]:
+        ax.legend(loc="lower left", fontsize=9)
+    foot = lang.T(K + ".footer", **tk(utc("2026-10-10", "03:05"))) + "\n" + lang.T(K + ".osm")
+    finish(fig, lang.T(K + ".title", **rng), foot, K)
