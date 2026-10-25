@@ -66,3 +66,7 @@ run = ["scripts/fig_zone13.py", "south"]
 [[figure]]
 name = "s2-west-arxan-20261013-v2"
 run = ["scripts/fig_zone13.py", "west"]
+
+[[figure]]
+name = "slider/s2swir_ignition"
+run = ["scripts/slider_ignition.py"]
