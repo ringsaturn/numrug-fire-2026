@@ -18,6 +18,7 @@ where DIR holds roads_mn.json (highway ways in Khalkhgol sum), water.json (water
 from __future__ import annotations
 
 import json
+import os
 import sys
 from functools import lru_cache
 from pathlib import Path
@@ -36,7 +37,28 @@ PLACES = {
     "sum": (118.6245846, 47.629254),  # node 1478274074 Халхгол (sum centre)
     "ford": (119.3578598, 46.97478),  # node 14316335076 ford=yes
     "track_end": (119.3715405, 46.9409528),  # last node of way 1571401319 (highway=track)
+    "khar_khonog": (119.2764, 46.6821),  # way 1453039868 landuse=military, name Хар Хоног; 6 buildings way 1346222984-89
+    "lone_bldg": (119.2661, 46.9873),  # way 1571401322 building=yes, no other tags
+    "ruins": (119.1896, 47.0744),  # node 4564653386 place=village beside 19 historic=ruins ways 185201318-354
+    "hamlet": (118.5463, 47.2448),  # node 14316343931 place=hamlet, 6 buildings way 1571401364-71
+    "dwelling_w": (118.5195, 47.1796),  # node 14316345177 place=isolated_dwelling
+    "dwelling_nw": (118.5005, 47.2415),  # node 14316344867 place=isolated_dwelling
 }
+# Whether Khar-Khonog is named on the figures (NUMRUG_KHAR_NAME=1); by default only its point is drawn, until the
+# write-up decides to name it.
+KHAR_NAME = os.environ.get("NUMRUG_KHAR_NAME") == "1"
+# man_made=tower nodes on the Chinese side within 5 km of the reserve (tower:type in the comment).
+CN_TOWERS = [
+    (119.9234, 46.9261),  # 12442355244 defensive
+    (119.7213, 47.1835),  # 12442355846 defensive
+    (119.6379, 47.2457),  # 12442355959 defensive
+    (119.5467, 47.3181),  # 12442356223 defensive
+    (119.5559, 47.3286),  # 12442356279 defensive
+    (119.5561, 47.3282),  # 12442356280 defensive
+    (119.5506, 46.5885),  # 2410903935 observation
+    (119.9032, 46.6657),  # 2410904263 communication
+    (119.5905, 47.3358),  # 3091504466 communication
+]
 # Banner boundaries meeting the national border (shared end nodes of admin_level=2 ways).
 JUNCTIONS = {
     "ujimqin_horqin": (119.8986, 46.6651),
@@ -61,6 +83,14 @@ def waterways() -> dict:
     layer of the xue arxan-fire-2026 showcase, built from the same 2026-10-25 Overpass snapshot)."""
     d = json.load(open(FILE.parent / "osm-20261025-waterways.geojson"))
     return {f["properties"]["kind"]: f["geometry"]["coordinates"] for f in d["features"]}
+
+
+@lru_cache(maxsize=1)
+def tracks() -> list[list]:
+    """Visible stretches of the linear feature between Khar-Khonog and the ignition area, traced by eye on
+    Sentinel-2 (2026-10-05/10-08) and Esri World Imagery (2018, 2022); see snapshot/s2-tracks-20261025.geojson."""
+    d = json.load(open(FILE.parent / "s2-tracks-20261025.geojson"))
+    return [f["geometry"]["coordinates"] for f in d["features"]]
 
 
 def T(key: str, wrap: bool = False) -> str:

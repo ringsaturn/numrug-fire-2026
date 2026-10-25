@@ -116,4 +116,5 @@ rivers = "河流（OSM waterway=river；粗线为哈拉哈河、德勒格尔河�
 streams = "溪流（OSM waterway=stream，仅哈拉哈河苏木境内）"
 roads = "其他道路（OSM，蒙方）"
 footer = """路线为 OSM 道路网（highway=*，不含步道）上的最短路径，不代表任何人实际走过的路线；起火点 46.883°N、119.395°E。
-底图：Copernicus DEM GLO-90 晕渲。道路、地名、国界、旗市界、保护区边界、河流和溪流：OSM 2026-10-25 快照，© OpenStreetMap contributors (ODbL)。"""
+底图：Copernicus DEM GLO-90 晕渲。道路、地名、国界、旗市界、保护区边界、河流和溪流：OSM 2026-10-25 快照，© OpenStreetMap contributors (ODbL)。
+线状地物：哨兵-2 L2A（2026-10-05、10-08）和 Esri World Imagery（2018-11-25、2022-09-07）上目视勾绘，只画可见段，性质不明。"""

@@ -26,6 +26,8 @@ OSM_PLACES = [
     ("zastav", "ko", (-6, 5), "right"),
     ("sumber", "k^", (-6, -13), "right"),
     ("arxan_port", "k^", (6, 3), "left"),
+    ("khar_khonog", "ko", (6, -2), "left"),
+    ("lone_bldg", "ko", (-6, -2), "right"),
 ]
 COLOURS = ["#4575b4", "#91bfdb", "#fee090", "#fc8d59", "#d73027", "#67001f"]
 
@@ -63,6 +65,8 @@ for la, lo, key, mk, left in PLACES:
 for key, mk, off, ha in OSM_PLACES:
     lo, la = osm.PLACES[key]
     ax.plot(lo, la, mk, ms=6, zorder=6)
+    if key == "khar_khonog" and not osm.KHAR_NAME:
+        continue
     ax.annotate(
         osm.T(key), (lo, la), xytext=off, textcoords="offset points", ha=ha, fontsize=9.5, zorder=6,
         bbox=dict(fc="white", ec="none", alpha=0.75, pad=0.8),

@@ -110,4 +110,5 @@ streams = "streams (OSM, Khalkhgol sum only)"
 roads = "other roads, Mongolian side (OSM)"
 footer = """Routes are shortest paths on the OSM road network (highway=*, footpaths excluded), not the route anyone actually took;
 ignition point 46.883°N, 119.395°E. Base map: Copernicus DEM GLO-90 hillshade. Roads, places, border, banner boundaries,
-reserve boundary, rivers and streams: OSM 2026-10-25 snapshot, © OpenStreetMap contributors (ODbL)."""
+reserve boundary, rivers and streams: OSM 2026-10-25 snapshot, © OpenStreetMap contributors (ODbL).
+Linear features: traced by eye on Sentinel-2 L2A (2026-10-05, 10-08) and Esri World Imagery (2018-11-25, 2022-09-07); visible stretches only, nature unknown."""

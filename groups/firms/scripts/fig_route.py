@@ -21,6 +21,7 @@ W, E, S, N = 118.5, 120.05, 46.55, 47.72
 ASP = 1 / np.cos(np.radians((S + N) / 2))
 BG, FG, MUTED = "#101214", "#e8e6e3", "#9a9894"
 ROUTE, BRANCH, RIVER, SPA, STRAIGHT = "#ffd84d", "#ff9a3c", "#5aa9e6", "#4fd17a", "#ffffff"
+TRACK, TOWER = "#ff3df5", "#ff8a8a"
 G = Geod(ellps="WGS84")
 HALO = [pe.withStroke(linewidth=3, foreground=BG)]
 O = osm.load()
@@ -66,7 +67,7 @@ print(f"route {k_end:.1f} km, junction at {k_junc:.1f} km ({JUNC[1]:.4f}N {JUNC[
 print(f"sum centre by road {k_town_road:.3f} + {k_walk:.3f} = {k_town_road + k_walk:.3f} km, straight {k_straight:.3f} km,")
 print(f"Nömrög bag at {k_bag:.1f} km")
 
-FH = 14.4  # figure height in inches: 0.7 title, 11.49 map, legend and footer below
+FH = 15.0  # figure height in inches: 0.7 title, 11.49 map, legend and footer below
 fig = plt.figure(figsize=(11, FH), dpi=140, facecolor=BG)
 ax = fig.add_axes([0.03, 1 - (0.7 + 11.49) / FH, 0.94, 11.49 / FH])
 ax.set_facecolor(BG)
@@ -118,6 +119,14 @@ for p, ls, lw, key, val, off in (
     ax.plot(*p, "o", ms=3.5, color=STRAIGHT, zorder=6)
 ax.plot([IG[0], osm.PLACES["track_end"][0]], [IG[1], osm.PLACES["track_end"][1]], color="cyan", lw=1.6,
         ls=(0, (3, 2)), zorder=6)
+KHAR = osm.PLACES["khar_khonog"]
+k_khar = km(IG, KHAR)
+ax.plot([IG[0], KHAR[0]], [IG[1], KHAR[1]], color=STRAIGHT, lw=1.0, ls=(0, (1, 2)), zorder=5)
+for c in osm.tracks() + [O["s2_lines"]["s2-line-a"]]:
+    x, y = zip(*c)
+    ax.plot(x, y, color=TRACK, lw=1.0, ls=(0, (3, 2)), zorder=5.5)
+x, y = zip(*osm.CN_TOWERS)
+ax.plot(x, y, "^", ms=3.6, mfc=TOWER, mec="none", ls="", zorder=6)
 
 
 def mid_label(a, b, text, f=0.5, off=(0, 0), rot=True, **kw):
@@ -138,6 +147,7 @@ mid_label(IG, osm.NEAREST["arxan_segment"], lang.T(C + "hg_label", km=f"{km(IG, 
 mid_label(IG, osm.NEAREST["border"], lang.T(C + "border_label", km=f"{km(IG, osm.NEAREST['border']):.1f}"), 0.5,
           (0, 9), fontsize=9)
 mid_label(IG, osm.PLACES["track_end"], f"{k_walk:.1f} km", 0.5, (14, 0), rot=False, color="cyan", fontsize=9.5)
+mid_label(IG, KHAR, lang.T(C + "straight_label", km=f"{k_khar:.1f}"), 0.55, (0, 8), fontsize=9)
 
 # road paths
 x, y = zip(*branch)
@@ -174,11 +184,19 @@ PL = [
     ("ford", "D", (9, -3), "left", "top"),
     ("sum", "s", (9, 6), "left", "bottom"),
     ("track_end", "s", (-9, -3), "right", "top"),
+    ("khar_khonog", "o", (9, -3), "left", "top"),
+    ("lone_bldg", "o", (-7, -5), "right", "top"),
+    ("ruins", "o", (-8, 0), "right", "center"),
+    ("hamlet", "o", (8, 5), "left", "bottom"),
+    ("dwelling_w", "o", (8, 0), "left", "center"),
+    ("dwelling_nw", "o", (8, -5), "left", "top"),
 ]
 for key, mk, off, ha, va in PL:
     lo, la = osm.PLACES[key]
     ax.plot(lo, la, mk, ms=6 if mk != "D" else 4.5, mfc="white", mec="black", mew=0.9, zorder=10)
-    ax.annotate(osm.T(key), (lo, la), xytext=off, textcoords="offset points", ha=ha, va=va, color="white",
+    if key == "khar_khonog" and not osm.KHAR_NAME:
+        continue
+    ax.annotate(osm.T(key.split("_")[0] if key.startswith("dwelling") else key), (lo, la), xytext=off, textcoords="offset points", ha=ha, va=va, color="white",
                 fontsize=9.5, family=osm.font(), path_effects=HALO, zorder=11)
 ax.plot(*ARXAN, "s", ms=6, mfc="white", mec="black", zorder=10)
 ax.annotate(lang.T(C + "arxan"), ARXAN, xytext=(-8, 6), textcoords="offset points", ha="right", color="white",
@@ -220,6 +238,8 @@ H = [
     (mlines.Line2D([], [], color=RIVER, lw=1.6), lang.T(C + "rivers")),
     (mlines.Line2D([], [], color=RIVER, lw=0.55, alpha=0.55), lang.T(C + "streams")),
     (mlines.Line2D([], [], color="#b9b4ab", lw=0.8), lang.T(C + "roads")),
+    (mlines.Line2D([], [], color=TRACK, lw=1.0, ls=(0, (3, 2))), osm.T("tracks")),
+    (mlines.Line2D([], [], marker="^", ms=5, mfc=TOWER, mec="none", ls=""), osm.T("cn_towers")),
 ]
 leg = fig.legend(*zip(*H), loc="upper left", bbox_to_anchor=(0.03, 1 - (0.7 + 11.49 + 0.07) / FH), ncol=2, frameon=False, fontsize=10,
                  labelcolor=FG, handlelength=2.6, columnspacing=1.6)
