@@ -1,7 +1,7 @@
 """route-port-ignition: shortest road paths on the OSM 2026-10-25 network from Sümber port and from the Khalkhgol sum
 centre to the end of the track nearest the ignition point, over the DEM hillshade of the spread animation.
 Also the straight lines from the ignition point to the sum centre and to the nearest border points, the banner
-boundaries meeting the national border, the Nömrög reserve boundary and the rivers."""
+boundaries meeting the national border, the Nömrög reserve boundary, the rivers and the streams of Khalkhgol sum."""
 
 import matplotlib
 
@@ -66,8 +66,9 @@ print(f"route {k_end:.1f} km, junction at {k_junc:.1f} km ({JUNC[1]:.4f}N {JUNC[
 print(f"sum centre by road {k_town_road:.3f} + {k_walk:.3f} = {k_town_road + k_walk:.3f} km, straight {k_straight:.3f} km,")
 print(f"Nömrög bag at {k_bag:.1f} km")
 
-fig = plt.figure(figsize=(11, 14.0), dpi=140, facecolor=BG)
-ax = fig.add_axes([0.03, 0.129, 0.94, 0.821])
+FH = 14.4  # figure height in inches: 0.7 title, 11.49 map, legend and footer below
+fig = plt.figure(figsize=(11, FH), dpi=140, facecolor=BG)
+ax = fig.add_axes([0.03, 1 - (0.7 + 11.49) / FH, 0.94, 11.49 / FH])
 ax.set_facecolor(BG)
 ax.imshow(hillshade(W, E, S, N), extent=(W, E, S, N), aspect=ASP, interpolation="bilinear")
 
@@ -75,12 +76,18 @@ ax.imshow(hillshade(W, E, S, N), extent=(W, E, S, N), aspect=ASP, interpolation=
 osm.roads(ax, ("unclassified", "track", "tertiary", "primary", "trunk", "residential"), color="#b9b4ab", lw=0.5,
           alpha=0.55, zorder=2)
 osm.spa(ax, color=SPA, lw=1.1, alpha=0.9, zorder=3)
+WW = osm.waterways()
+for line in WW["stream"]:
+    x, y = zip(*line)
+    ax.plot(x, y, color=RIVER, lw=0.55, alpha=0.55, zorder=2.5, solid_capstyle="round")
+for line in WW["river"]:
+    x, y = zip(*line)
+    ax.plot(x, y, color=RIVER, lw=0.9, alpha=0.85, zorder=3, solid_capstyle="round")
+# the labelled main rivers drawn again, heavier: Khalkh, Delger and the unnamed border river south of the ports
 for w in O["rivers"]:
-    named = w["name"] in ("Халх гол", "Дэлгэр гол")
-    border_river = w["id"] == 161028141  # unnamed river along the border south of the ports
-    if named or border_river:
+    if w["name"] in ("Халх гол", "Дэлгэр гол") or w["id"] == 161028141:
         x, y = zip(*w["c"])
-        ax.plot(x, y, color=RIVER, lw=1.3, zorder=3, solid_capstyle="round")
+        ax.plot(x, y, color=RIVER, lw=1.6, zorder=3.1, solid_capstyle="round")
 for w in O["border"]:
     x, y = zip(*w["c"])
     ax.plot(x, y, color="#f2f2f2", lw=1.2, ls=(0, (5, 3)), alpha=0.9, zorder=4)
@@ -196,8 +203,8 @@ ax.set_yticks([])
 for s in ax.spines.values():
     s.set_visible(False)
 
-fig.text(0.03, 0.988, lang.T(C + "title"), color=FG, fontsize=float(lang.T(C + "title_size")), weight="bold", va="top")
-fig.text(0.03, 0.967, lang.T(C + "subtitle", road=f"{k_town_road:.1f}", walk=f"{k_walk:.1f}",
+fig.text(0.03, 1 - 0.17 / FH, lang.T(C + "title"), color=FG, fontsize=float(lang.T(C + "title_size")), weight="bold", va="top")
+fig.text(0.03, 1 - 0.46 / FH, lang.T(C + "subtitle", road=f"{k_town_road:.1f}", walk=f"{k_walk:.1f}",
                              total=f"{k_town_road + k_walk:.1f}", straight=f"{k_straight:.1f}"),
          color=MUTED, fontsize=11, va="top")
 
@@ -210,10 +217,11 @@ H = [
     (mlines.Line2D([], [], color="#f2f2f2", lw=1.2, ls=(0, (5, 3))), lang.T(C + "border")),
     (mlines.Line2D([], [], color="#ff5c8a", lw=2.6), lang.T(C + "tick")),
     (mlines.Line2D([], [], color=SPA, lw=1.1), osm.T("spa")),
-    (mlines.Line2D([], [], color=RIVER, lw=1.3), lang.T(C + "rivers")),
+    (mlines.Line2D([], [], color=RIVER, lw=1.6), lang.T(C + "rivers")),
+    (mlines.Line2D([], [], color=RIVER, lw=0.55, alpha=0.55), lang.T(C + "streams")),
     (mlines.Line2D([], [], color="#b9b4ab", lw=0.8), lang.T(C + "roads")),
 ]
-leg = fig.legend(*zip(*H), loc="upper left", bbox_to_anchor=(0.03, 0.124), ncol=2, frameon=False, fontsize=10,
+leg = fig.legend(*zip(*H), loc="upper left", bbox_to_anchor=(0.03, 1 - (0.7 + 11.49 + 0.07) / FH), ncol=2, frameon=False, fontsize=10,
                  labelcolor=FG, handlelength=2.6, columnspacing=1.6)
 fig.text(0.03, 0.012, lang.T(C + "footer"), color=MUTED, fontsize=8.5, va="bottom", linespacing=1.4)
 fig.savefig(lang.out("route-port-ignition"), facecolor=BG)

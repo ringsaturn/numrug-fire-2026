@@ -54,6 +54,15 @@ def load() -> dict:
     return json.load(open(FILE))
 
 
+@lru_cache(maxsize=1)
+def waterways() -> dict:
+    """{"river": [lines], "stream": [lines]} from snapshot/osm-20261025-waterways.geojson: every waterway=river in
+    117-122°E, 45.5-48.5°N and the waterway=stream ways of Khalkhgol sum, simplified to about 20 m (the context
+    layer of the xue arxan-fire-2026 showcase, built from the same 2026-10-25 Overpass snapshot)."""
+    d = json.load(open(FILE.parent / "osm-20261025-waterways.geojson"))
+    return {f["properties"]["kind"]: f["geometry"]["coordinates"] for f in d["features"]}
+
+
 def T(key: str, wrap: bool = False) -> str:
     """Place label; wrap=True puts the translation on a second line."""
     from . import lang
