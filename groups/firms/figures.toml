@@ -77,3 +77,7 @@ run = ["scripts/fig_1013_1014.py"]
 [[figure]]
 name = "firms-20261014-1015"
 run = ["scripts/fig_1014_1015.py"]
+
+[[figure]]
+name = "route-port-ignition"
+run = ["scripts/fig_route.py"]
