@@ -15,3 +15,20 @@ decimal = "."
 [common]
 utc8 = "北京时间"
 local_time_axis = "北京时间"
+
+# OSM snapshot 2026-10-25 (figkit/osm.py): place labels keep the original name and add the Chinese one.
+[osm]
+sumber = "Сүмбэр боомт（松贝尔口岸）"
+arxan_port = "阿尔山口岸"
+zastav = "Нөмрөгийн застав（努木尔格哨所）"
+bag = "Нөмрөг баг（努木尔格巴格）"
+sum = "Халхгол（哈拉哈河苏木中心）"
+ford = "涉水点"
+track_end = "OSM 土路尽头"
+khalkh = "Халх гол（哈拉哈河）"
+delger = "Дэлгэр гол（德勒格尔河）"
+ignition = "起火点"
+roads = "蒙方道路（OSM）"
+spa = "努木尔格严格保护区边界（OSM）"
+s2_lines = "性质不明的线状地物（哨兵-2 目视勾绘）"
+credit = "OSM 2026-10-25 快照，© OpenStreetMap contributors (ODbL)"

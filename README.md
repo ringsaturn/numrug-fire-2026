@@ -45,6 +45,7 @@ The weather group's xue model stores additionally need a checkout of
 | `groups/<group>/scripts/` | fetch, derive and figure scripts |
 | `groups/<group>/i18n/<lang>.toml` | the group's figure strings, one table per figure |
 | `groups/<group>/snapshot/` | small inputs that can no longer be fetched (FIRMS NRT rows, an OSM border cut) |
+| `snapshot/osm-20261025.json`, `figkit/osm.py` | OSM snapshot of 2026-10-25 shared by several groups: Mongolian-side roads, rivers, the reserve boundary, border ways, places, shortest road routes and three hand-digitised Sentinel-2 linear features |
 | `groups/<group>/README.md` | sources, granule/item IDs, checks against the published figures, known differences |
 
 | Group | Figures |

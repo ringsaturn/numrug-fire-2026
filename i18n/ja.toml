@@ -14,3 +14,20 @@ decimal = "."
 [common]
 utc8 = "UTC+8"
 local_time_axis = "現地時間（UTC+8）"
+
+# OSM snapshot 2026-10-25 (figkit/osm.py): place labels keep the original name and add the Japanese one.
+[osm]
+sumber = "Сүмбэр боомт（スンベル口岸）"
+arxan_port = "阿尔山口岸（アルシャン口岸）"
+zastav = "Нөмрөгийн застав（ヌムルグ哨所）"
+bag = "Нөмрөг баг（ヌムルグ・バグ）"
+sum = "Халхгол（ハルハゴル郡中心）"
+ford = "渡渉点"
+track_end = "OSM の道（track）の終点"
+khalkh = "Халх гол（ハルハ川）"
+delger = "Дэлгэр гол（デルゲル川）"
+ignition = "出火地点"
+roads = "モンゴル側の道路（OSM）"
+spa = "ヌムルグ厳正保護区の境界（OSM）"
+s2_lines = "性質不明の線状地物（Sentinel-2、目視で判読）"
+credit = "OSM 2026-10-25 スナップショット、© OpenStreetMap contributors (ODbL)"

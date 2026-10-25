@@ -2,7 +2,9 @@
 # English is the fallback for every other language.
 
 [fonts]
-family = ["DejaVu Sans"]
+# The CJK fallback only draws glyphs DejaVu lacks (Chinese place names such as 阿尔山口岸).
+files = ["/System/Library/Fonts/Hiragino Sans GB.ttc"]
+family = ["DejaVu Sans", "Hiragino Sans GB", "Noto Sans CJK SC"]
 
 [fmt]
 md = "{m:02d}-{d:02d}"
@@ -15,3 +17,20 @@ decimal = "."
 [common]
 utc8 = "UTC+8"
 local_time_axis = "Local time (UTC+8)"
+
+# OSM snapshot 2026-10-25 (figkit/osm.py): place labels keep the original name and add the English one.
+[osm]
+sumber = "Сүмбэр боомт (Sümber port)"
+arxan_port = "阿尔山口岸 (Arxan port)"
+zastav = "Нөмрөгийн застав (Nömrög outpost)"
+bag = "Нөмрөг баг (Nömrög bag)"
+sum = "Халхгол (Khalkhgol sum centre)"
+ford = "ford"
+track_end = "end of OSM track"
+khalkh = "Халх гол (Khalkh River)"
+delger = "Дэлгэр гол (Delger River)"
+ignition = "ignition point"
+roads = "roads, Mongolian side (OSM)"
+spa = "Nömrög reserve boundary (OSM)"
+s2_lines = "linear features of unknown nature (Sentinel-2, hand-digitised)"
+credit = "OSM 2026-10-25 snapshot, © OpenStreetMap contributors (ODbL)"
