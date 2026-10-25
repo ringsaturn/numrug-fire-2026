@@ -128,3 +128,18 @@ def draw_scar(ax, mask):
 def draw_border(ax, **kw):
     for p in border("mapbbox"):
         ax.plot(p[:, 0], p[:, 1], **kw)
+
+
+def hillshade(W, E, S, N):
+    """Copernicus DEM GLO-90 hillshade of the animation (lit from the NW, dark base) for the box W, E, S, N."""
+    import rasterio
+    from matplotlib.colors import LightSource
+    from rasterio.merge import merge
+    from scipy import ndimage as nd
+
+    asp = 1 / np.cos(np.radians((S + N) / 2))
+    srcs = [rasterio.open(f) for f in sorted((RAW / "dem").glob("*.tif"))]
+    dem = merge(srcs, bounds=(W, S, E, N), res=(1 / 1200, 1 / 1200))[0][0].astype(float)
+    dem = nd.zoom(dem, 0.6, order=1)
+    hs = LightSource(azdeg=315, altdeg=40).hillshade(dem, vert_exag=6, dx=1 / 720 * 111e3 / asp, dy=1 / 720 * 111e3)
+    return np.clip(np.dstack([0.10 + 0.22 * hs] * 3) * np.array([1.0, 0.98, 0.93]), 0, 1)

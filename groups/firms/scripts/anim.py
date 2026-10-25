@@ -18,13 +18,9 @@ import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import numpy as np
-import rasterio
-from matplotlib.colors import LightSource
 from PIL import Image
-from rasterio.merge import merge
-from scipy import ndimage as nd
 
-from common import ANIM_BOX, GIBS, RAW, SAT_NAME, border, in_box, modis_nrt, viirs
+from common import ANIM_BOX, GIBS, SAT_NAME, border, hillshade, in_box, modis_nrt, viirs
 from figkit import lang, paths
 
 lang.init(__file__, figure="arxan-fire-spread")
@@ -62,11 +58,7 @@ m = m[(m.t >= "2026-10-15 06:52") & (m.latitude < 46.55)]
 mh = [((t - T0).total_seconds() / 3600, y, x) for t, y, x in zip(m.t, m.latitude, m.longitude)]
 
 # hillshade
-srcs = [rasterio.open(f) for f in sorted((RAW / "dem").glob("*.tif"))]
-dem = merge(srcs, bounds=(W, S, E, N), res=(1 / 1200, 1 / 1200))[0][0].astype(float)
-dem = nd.zoom(dem, 0.6, order=1)
-hs = LightSource(azdeg=315, altdeg=40).hillshade(dem, vert_exag=6, dx=1 / 720 * 111e3 / ASP, dy=1 / 720 * 111e3)
-base = np.clip(np.dstack([0.10 + 0.22 * hs] * 3) * np.array([1.0, 0.98, 0.93]), 0, 1)
+base = hillshade(W, E, S, N)
 # GIBS 10-16 NOAA-21 false colour, cropped from its 118.8-120.2°E / 46.4-47.6°N frame to the map box
 fc = (
     np.asarray(Image.open(GIBS / "anim_2026-10-16_VIIRS_NOAA21_CorrectedReflectance_BandsM11-I2-I1.png").convert("RGB"))
